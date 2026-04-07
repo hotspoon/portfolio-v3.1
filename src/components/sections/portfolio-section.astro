@@ -1,0 +1,101 @@
+---
+import portfolioImage from "@/assets/img/portfolio-img.png"
+
+const tags = [
+  "Landing Page",
+  "Product Design",
+  "Animation",
+  "Glassmorphism",
+  "Cards",
+]
+
+const cards = Array.from({ length: 2 })
+---
+
+<section id="project" class="bg-white px-4 py-12 sm:px-6 lg:px-8">
+  <div class="mx-auto max-w-[1180px]">
+    <div class="mb-10 flex items-start justify-between gap-6">
+      <div>
+        <p class="text-[1.05rem] font-semibold text-[#2f3b52]">
+          Lets have a look at
+        </p>
+        <h2
+          class="mt-2 text-[3.65rem] leading-[0.95] font-black tracking-[-0.075em] text-[#2f3b52] sm:text-[4.3rem]"
+        >
+          my <span class="text-[#f58a3a]">Portfolio</span>
+        </h2>
+      </div>
+
+      <a
+        href="#contact"
+        class="mt-4 inline-flex min-h-[56px] min-w-[104px] items-center justify-center rounded-full bg-[#f58a3a] px-6 text-lg font-bold text-white transition hover:brightness-105"
+      >
+        See All
+      </a>
+    </div>
+
+    <div class="grid gap-5 lg:grid-cols-2">
+      {
+        cards.map(() => (
+          <article class="group relative overflow-hidden rounded-[1.7rem] bg-[#eef1f5] shadow-[0_12px_28px_rgba(35,43,59,0.08)]">
+            <img
+              src={portfolioImage.src}
+              alt="Portfolio preview"
+              class="h-[250px] w-full object-cover object-center"
+            />
+
+            <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[rgba(0,0,0,0.4)] to-transparent" />
+            <div class="absolute bottom-3 left-5 text-[3.15rem] leading-none font-black tracking-[-0.07em] text-white">
+              Lirante
+            </div>
+
+            <div class="absolute top-4 right-4 flex h-14 w-14 items-center justify-center rounded-full border-2 border-[#f58a3a] bg-white/82 text-[2rem] text-[#f58a3a] backdrop-blur-sm transition group-hover:bg-white">
+              ↗
+            </div>
+          </article>
+        ))
+      }
+    </div>
+
+    <div class="mt-8 flex items-center justify-center gap-2.5">
+      <span class="h-3 w-11 rounded-full bg-[#f58a3a]"></span>
+      <span class="h-3 w-3 rounded-full bg-[#dfe4ea]"></span>
+      <span class="h-3 w-3 rounded-full bg-[#dfe4ea]"></span>
+      <span class="h-3 w-3 rounded-full bg-[#dfe4ea]"></span>
+    </div>
+
+    <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+      {
+        tags.map((tag) => (
+          <span class="inline-flex rounded-full bg-[#f2f5f9] px-7 py-3 text-[1.05rem] font-medium text-[#404b60]">
+            {tag}
+          </span>
+        ))
+      }
+    </div>
+
+    <div class="mt-8 text-center">
+      <div class="flex items-center justify-center gap-4">
+        <h3
+          class="text-[3.2rem] leading-none font-black tracking-[-0.07em] text-[#2f3b52]"
+        >
+          Lirante - Food Dilvery Solution
+        </h3>
+        <a
+          href="#contact"
+          class="flex h-[3.75rem] w-[3.75rem] items-center justify-center rounded-full bg-[#f58a3a] text-[1.9rem] text-white transition hover:brightness-105"
+        >
+          ↗
+        </a>
+      </div>
+
+      <p
+        class="mx-auto mt-5 max-w-[760px] text-[1.05rem] leading-[1.45] text-[#6f7c90]"
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed congue
+        interdum ligula a dignissim. Lorem ipsum dolor sit amet, consectetur
+        adipiscing elit. Sed lobortis orci elementum egestas lobortis.
+      </p>
+    </div>
+  </div>
+</section>

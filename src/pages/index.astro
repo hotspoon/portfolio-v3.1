@@ -1,0 +1,32 @@
+---
+import Layout from "@/layouts/main.astro"
+import HeroSection from "@/components/sections/hero-section.astro"
+import ServicesSection from "@/components/sections/services-section.astro"
+import ExperienceSection from "@/components/sections/experience-section.astro"
+import AboutSection from "@/components/sections/about-section.astro"
+import PortfolioSection from "@/components/sections/portfolio-section.astro"
+import TestimonialsSection from "@/components/sections/testimonials-section.astro"
+import CtaSection from "@/components/sections/cta-section.astro"
+import MarqueeSection from "@/components/sections/marquee-section.astro"
+import BlogSection from "@/components/sections/blog-section.astro"
+import FooterSection from "@/components/sections/footer-section.astro"
+---
+
+<Layout>
+  <main id="home" class="px-4 py-4 sm:px-6 lg:px-8">
+    <div
+      class="mx-auto max-w-295 overflow-hidden rounded-[2.3rem] bg-white shadow-[0_30px_80px_rgba(30,24,12,0.08)]"
+    >
+      <HeroSection />
+      <ServicesSection />
+      <ExperienceSection />
+      <AboutSection />
+      <PortfolioSection />
+      <TestimonialsSection />
+      <CtaSection />
+      <MarqueeSection />
+      <BlogSection />
+      <FooterSection />
+    </div>
+  </main>
+</Layout>

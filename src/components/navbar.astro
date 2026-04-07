@@ -1,0 +1,56 @@
+---
+import logo from "@/assets/img/jcrea-nav-logo.png"
+
+const links = [
+  { href: "#home", label: "Home", active: true },
+  { href: "#about", label: "About" },
+  { href: "#service", label: "Service" },
+  { href: "#resume", label: "Resume" },
+  { href: "#project", label: "Project" },
+  { href: "#contact", label: "Contact" },
+]
+---
+
+<nav
+  class="flex w-full max-w-[1080px] flex-wrap items-center justify-center gap-2 rounded-[1.9rem] bg-[#151515] px-3 py-2 text-white shadow-[0_18px_45px_rgba(17,17,17,0.16)] md:flex-nowrap md:justify-between md:px-5"
+>
+  <div
+    class="flex flex-wrap items-center justify-center gap-2 md:justify-start"
+  >
+    {
+      links.slice(0, 3).map((link) => (
+        <a
+          href={link.href}
+          class:list={[
+            "rounded-full px-5 py-2.5 text-sm font-medium tracking-[0.01em] transition duration-200 hover:bg-white/10",
+            link.active &&
+              "bg-[#f39a52] text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.28)]",
+          ]}
+        >
+          {link.label}
+        </a>
+      ))
+    }
+  </div>
+
+  <a
+    href="#home"
+    class="order-first flex items-center gap-2.5 rounded-full px-4 py-2 md:order-none"
+  >
+    <img src={logo.src} alt="JCREA logo" class="h-9 w-9 object-contain" />
+    <span class="text-[1.7rem] font-extrabold tracking-[0.04em]">JCREA</span>
+  </a>
+
+  <div class="flex flex-wrap items-center justify-center gap-2 md:justify-end">
+    {
+      links.slice(3).map((link) => (
+        <a
+          href={link.href}
+          class="rounded-full px-5 py-2.5 text-sm font-medium tracking-[0.01em] transition duration-200 hover:bg-white/10"
+        >
+          {link.label}
+        </a>
+      ))
+    }
+  </div>
+</nav>

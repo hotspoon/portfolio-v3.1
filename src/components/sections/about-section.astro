@@ -1,0 +1,65 @@
+---
+import aboutImage from "@/assets/img/about-section-img.png"
+
+const stats = [
+  { value: "450+", label: "Project Completed" },
+  { value: "450+", label: "Project Completed" },
+]
+---
+
+<section id="about" class="bg-white">
+  <div
+    class="mx-auto grid max-w-[1240px] items-center gap-10 bg-[#f3f6fb] px-6 py-10 sm:px-8 lg:grid-cols-[1.02fr_1fr] lg:px-12 lg:py-12"
+  >
+    <div class="relative mx-auto flex w-full max-w-[520px] justify-center">
+      <div
+        class="absolute bottom-2 left-1/2 h-[76%] w-[66%] -translate-x-1/2 rounded-[3rem] bg-[#ffb36e]"
+      >
+      </div>
+      <img
+        src={aboutImage.src}
+        alt="About section portrait"
+        class="relative z-10 w-full max-w-[470px] object-contain"
+      />
+    </div>
+
+    <div class="mx-auto w-full max-w-[520px] text-center lg:text-left">
+      <h2
+        class="text-[3.6rem] leading-[0.95] font-black tracking-[-0.07em] text-[#2f3b52] sm:text-[4.25rem]"
+      >
+        Why <span class="text-[#ff8a37]">Hire me</span><span
+          class="text-[#2f3b52]">?</span
+        >
+      </h2>
+
+      <p
+        class="mt-7 max-w-[470px] text-[1.08rem] leading-[1.45] text-[#98a3b8] lg:max-w-[440px]"
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lacus
+        nunc, posuere in justo vulputate, bibendum sodales
+      </p>
+
+      <div class="mt-10 grid max-w-[520px] gap-8 sm:grid-cols-2">
+        {
+          stats.map((stat) => (
+            <div>
+              <div class="text-[3.15rem] leading-none font-black tracking-[-0.06em] text-[#2f3b52]">
+                {stat.value}
+              </div>
+              <p class="mt-3 text-[1rem] font-medium text-[#7d879c]">
+                {stat.label}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+
+      <a
+        href="#contact"
+        class="mt-10 inline-flex min-h-[104px] min-w-[224px] items-center justify-center rounded-[2rem] border border-[#4f5563] bg-white px-10 text-[2rem] font-black tracking-[-0.05em] text-[#151515] transition hover:border-[#151515]"
+      >
+        Hire me
+      </a>
+    </div>
+  </div>
+</section>

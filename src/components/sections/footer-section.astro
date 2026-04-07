@@ -1,0 +1,125 @@
+---
+import logo from "@/assets/img/jcrea-nav-logo.png"
+
+const navigation = ["Home", "About Us", "Service", "Resume", "Project"]
+
+const contactItems = [
+  "+91 7738443636",
+  "Jaycrea36@gmail.com",
+  "Portfolio-jcrea.com",
+]
+
+const socials = ["f", "▶", "◔", "◉", "𝕏"]
+---
+
+<footer
+  id="contact"
+  class="rounded-t-[2.4rem] bg-[#2c2b2b] px-4 py-12 text-white sm:px-6 lg:px-8"
+>
+  <div class="mx-auto max-w-[1300px]">
+    <div
+      class="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between"
+    >
+      <h2
+        class="text-[3.7rem] leading-none font-black tracking-[-0.075em] text-white sm:text-[4.6rem]"
+      >
+        Lets Connect there
+      </h2>
+
+      <a
+        href="#contact"
+        class="inline-flex min-h-[74px] min-w-[200px] items-center justify-center rounded-full bg-[#ff8937] px-8 text-[2rem] font-medium tracking-[-0.04em] text-white transition hover:brightness-105"
+      >
+        Hire me ↗
+      </a>
+    </div>
+
+    <div class="mt-12 h-px w-full bg-[#58627a]"></div>
+
+    <div class="grid gap-10 py-12 lg:grid-cols-[1.35fr_0.55fr_0.75fr_0.95fr]">
+      <div>
+        <div class="flex items-center gap-4">
+          <img
+            src={logo.src}
+            alt="JCREA logo"
+            class="h-14 w-14 object-contain"
+          />
+          <span class="text-[2.2rem] font-black tracking-[-0.04em] text-white">
+            JCREA
+          </span>
+        </div>
+
+        <p class="mt-10 max-w-[620px] text-[1rem] leading-[1.5] text-white/90">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed congue
+          interdum ligula a dignissim. Lorem ipsum dolor sit amet, consectetur
+          adipiscing elit. Sed lobortis orci elementum egestas lobortis.
+        </p>
+
+        <div class="mt-8 flex items-center gap-3">
+          {
+            socials.map((item) => (
+              <span class="flex h-9 w-9 items-center justify-center rounded-full bg-white text-[1rem] font-bold text-[#2c2b2b]">
+                {item}
+              </span>
+            ))
+          }
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-[2rem] font-bold tracking-[-0.04em] text-[#ff8937]">
+          Navigation
+        </h3>
+        <div class="mt-8 space-y-5">
+          {
+            navigation.map((item) => (
+              <div class="text-[1.2rem] text-white">{item}</div>
+            ))
+          }
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-[2rem] font-bold tracking-[-0.04em] text-[#ff8937]">
+          Contact
+        </h3>
+        <div class="mt-8 space-y-5">
+          {
+            contactItems.map((item) => (
+              <div class="text-[1.2rem] text-white">{item}</div>
+            ))
+          }
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-[2rem] font-bold tracking-[-0.04em] text-[#ff8937]">
+          Get the latest information
+        </h3>
+
+        <div class="mt-10 overflow-hidden rounded-[1.2rem] bg-white">
+          <div class="grid grid-cols-[1fr_64px] items-stretch">
+            <div class="px-6 py-5 text-[1.2rem] text-[#161616]">
+              Email Address
+            </div>
+            <button
+              type="button"
+              class="flex items-center justify-center bg-[#ff8937] text-[1.8rem] text-white"
+            >
+              ➤
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="h-px w-full bg-[#58627a]"></div>
+
+    <div
+      class="mt-10 flex flex-col gap-4 text-[1rem] text-white/95 lg:flex-row lg:items-center lg:justify-between"
+    >
+      <p>Copyright© 2023 Jayesh. All Rights Reserved.</p>
+      <p>User Terms & Conditions | Privacy Policy</p>
+    </div>
+  </div>
+</footer>
