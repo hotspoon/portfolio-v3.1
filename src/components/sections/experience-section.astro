@@ -18,34 +18,38 @@ const experiences = [
     company: "Cinetstox, Mumbai",
     date: "Sep 2023",
     role: "Lead UX Designer",
-    desc: "",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lacus nunc, posuere in justo vulputate, bibendum sodales",
     active: "orange",
   },
 ]
 ---
 
-<section id="resume" class="px-4 py-16 sm:px-6 lg:px-8">
+<section id="resume" class="px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
   <div class="mx-auto max-w-[1180px]">
     <div class="text-center">
-      <h2 class="text-4xl font-black tracking-[-0.06em] text-[#243244] sm:text-5xl">
+      <h2
+        class="text-[2.35rem] leading-[1.05] font-black tracking-[-0.06em] text-[#243244] sm:text-5xl"
+      >
         My <span class="text-[#f39a52]">Work Experience</span>
       </h2>
     </div>
 
-    <div class="mt-16 grid gap-y-14">
+    <div class="mt-10 grid gap-y-10 sm:mt-16 sm:gap-y-14">
       {
         experiences.map((item, index) => (
-          <div class="grid items-start gap-x-16 md:grid-cols-[1fr_90px_1fr]">
+          <div class="grid items-start gap-y-4 sm:gap-y-5 md:grid-cols-[1fr_90px_1fr] md:gap-x-16 md:gap-y-0">
             <div class="text-left">
-              <h3 class="text-3xl font-black tracking-[-0.05em] text-[#243244]">
+              <h3 class="text-[2rem] leading-[1.08] font-black tracking-[-0.05em] text-[#243244] sm:text-3xl">
                 {item.company}
               </h3>
-              <p class="mt-2 text-[1.1rem] text-[#97a1b2]">{item.date}</p>
+              <p class="mt-2 text-base text-[#97a1b2] sm:text-[1.1rem]">
+                {item.date}
+              </p>
             </div>
 
-            <div class="relative mx-auto hidden h-full w-[90px] md:flex justify-center">
+            <div class="relative mx-auto hidden h-full w-[90px] justify-center md:flex">
               {index !== experiences.length - 1 && (
-                <div class="absolute top-8 bottom-[-3.5rem] left-1/2 w-px -translate-x-1/2 border-l-2 border-dashed border-[#3b4354]"></div>
+                <div class="absolute top-8 bottom-[-3.5rem] left-1/2 w-px -translate-x-1/2 border-l-2 border-dashed border-[#3b4354]" />
               )}
 
               <div
@@ -53,15 +57,15 @@ const experiences = [
                   "relative z-10 mt-1 h-10 w-10 rounded-full border-4 border-white shadow-[0_0_0_2px_#3b4354]",
                   item.active === "dark" ? "bg-[#243244]" : "bg-[#f39a52]",
                 ]}
-              ></div>
+              />
             </div>
 
             <div class="text-left">
-              <h3 class="text-3xl font-black tracking-[-0.05em] text-[#243244]">
+              <h3 class="text-[2rem] leading-[1.08] font-black tracking-[-0.05em] text-[#243244] sm:text-3xl">
                 {item.role}
               </h3>
               {item.desc && (
-                <p class="mt-2 max-w-[420px] text-[1.1rem] leading-8 text-[#97a1b2]">
+                <p class="mt-2 max-w-[420px] text-base leading-7 text-[#97a1b2] sm:text-[1.1rem] sm:leading-8">
                   {item.desc}
                 </p>
               )}

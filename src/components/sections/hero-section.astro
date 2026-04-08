@@ -11,17 +11,19 @@ const stars = Array.from({ length: 5 })
 <div class="px-4 pt-4 sm:px-6 lg:px-8">
   <Navbar />
 
-  <section class="relative overflow-hidden px-2 pt-8 pb-0 sm:px-4 lg:px-8">
+  <section
+    class="relative overflow-hidden px-1 pt-6 pb-0 sm:px-4 sm:pt-8 lg:px-8"
+  >
     <div class="relative z-20 mx-auto max-w-[820px] text-center">
       <div
-        class="relative z-20 inline-flex items-center gap-3 rounded-full border border-[#1d1d1d]/35 bg-white px-5 py-2 text-lg font-semibold text-[#1d1d1d] shadow-[0_8px_18px_rgba(0,0,0,0.05)]"
+        class="relative z-20 inline-flex items-center gap-2 rounded-full border border-[#1d1d1d]/35 bg-white px-4 py-2 text-sm font-semibold text-[#1d1d1d] shadow-[0_8px_18px_rgba(0,0,0,0.05)] sm:gap-3 sm:px-5 sm:text-lg"
       >
         <span>Hello!</span>
-        <img src={helloSpark.src} alt="" class="h-5 w-auto" />
+        <img src={helloSpark.src} alt="" class="h-4 w-auto sm:h-5" />
       </div>
 
       <h1
-        class="mt-4 text-5xl leading-[0.9] font-black tracking-[-0.07em] text-[#141414] sm:text-6xl lg:text-[5.15rem]"
+        class="mt-4 text-[2.9rem] leading-[0.92] font-black tracking-[-0.075em] text-[#141414] sm:text-6xl lg:text-[5.15rem]"
       >
         I'm <span class="text-[#f39a52]">Jenny,</span><br />
         Product Designer
@@ -31,12 +33,16 @@ const stars = Array.from({ length: 5 })
     <div
       class="relative mt-3 grid gap-4 lg:grid-cols-[1fr_minmax(640px,780px)_1fr] lg:items-center"
     >
-      <aside class="flex justify-center lg:justify-start">
-        <div class="max-w-[220px] text-center lg:mt-8 lg:text-left">
-          <div class="mb-4 text-5xl leading-none font-black text-[#4b5563]">
+      <aside class="order-2 flex justify-center lg:order-none lg:justify-start">
+        <div class="max-w-[240px] text-center lg:mt-8 lg:text-left">
+          <div
+            class="mb-3 text-4xl leading-none font-black text-[#4b5563] sm:text-5xl"
+          >
             “
           </div>
-          <p class="text-[15px] leading-[1.5] font-semibold text-[#475569]">
+          <p
+            class="text-sm leading-[1.5] font-semibold text-[#475569] sm:text-[15px]"
+          >
             Jenny's Exceptional product design ensure our website's success.
             Highly Recommended
           </p>
@@ -44,7 +50,7 @@ const stars = Array.from({ length: 5 })
       </aside>
 
       <div
-        class="relative mx-auto flex min-h-[500px] w-full max-w-[760px] items-end justify-center overflow-visible lg:min-h-[520px]"
+        class="relative order-1 mx-auto flex min-h-[360px] w-full max-w-[760px] items-end justify-center overflow-visible sm:min-h-[430px] lg:order-none lg:min-h-[520px]"
       >
         <img
           src={accentStroke.src}
@@ -54,27 +60,27 @@ const stars = Array.from({ length: 5 })
         <img
           src={heroEllipse.src}
           alt=""
-          class="absolute bottom-0 z-0 w-[102%] max-w-[680px]"
+          class="absolute bottom-0 z-0 w-[108%] max-w-[680px] sm:w-[102%]"
         />
         <img
           src={heroImage.src}
           alt="Portrait illustration"
-          class="absolute bottom-[1rem] left-1/2 z-30 w-[126%] max-w-[760px] -translate-x-1/2 object-contain drop-shadow-[0_18px_30px_rgba(77,43,12,0.18)] lg:bottom-[0rem] lg:w-[132%] lg:max-w-[820px]"
+          class="absolute bottom-[0.75rem] left-1/2 z-30 w-[140%] max-w-[760px] -translate-x-1/2 object-contain drop-shadow-[0_18px_30px_rgba(77,43,12,0.18)] sm:bottom-[1rem] sm:w-[126%] lg:bottom-[0rem] lg:w-[132%] lg:max-w-[820px]"
         />
 
         <div
-          class="absolute bottom-3 z-40 w-[min(92%,290px)] rounded-[1.75rem] border border-white/35 bg-[rgba(119,86,58,0.23)] p-3 shadow-[0_18px_36px_rgba(88,56,31,0.18)] backdrop-blur-md"
+          class="absolute bottom-2 z-40 w-[min(95%,310px)] rounded-[1.4rem] border border-white/35 bg-[rgba(119,86,58,0.23)] p-2.5 shadow-[0_18px_36px_rgba(88,56,31,0.18)] backdrop-blur-md sm:bottom-3 sm:w-[min(92%,290px)] sm:rounded-[1.75rem] sm:p-3"
         >
-          <div class="grid grid-cols-[1.1fr_0.9fr] items-center gap-3">
+          <div class="grid grid-cols-[1.1fr_0.9fr] items-center gap-2 sm:gap-3">
             <a
               href="#project"
-              class="rounded-full bg-[#f39a52] px-6 py-4 text-center text-xl font-bold whitespace-nowrap text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.25)] transition hover:brightness-105"
+              class="rounded-full bg-[#f39a52] px-4 py-3 text-center text-base font-bold whitespace-nowrap text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.25)] transition hover:brightness-105 sm:px-6 sm:py-4 sm:text-xl"
             >
               Portfolio ↗
             </a>
             <a
               href="#contact"
-              class="text-center text-xl font-medium text-white/88 transition hover:text-white"
+              class="text-center text-base font-medium text-white/88 transition hover:text-white sm:text-xl"
             >
               Hire me
             </a>
@@ -82,19 +88,25 @@ const stars = Array.from({ length: 5 })
         </div>
       </div>
 
-      <aside class="flex justify-center lg:justify-end">
+      <aside class="order-3 flex justify-center lg:justify-end">
         <div class="text-center lg:mt-8 lg:text-right">
           <div
-            class="mb-4 flex justify-center gap-1 text-[#f39a52] lg:justify-end"
+            class="mb-3 flex justify-center gap-1 text-[#f39a52] lg:justify-end"
           >
-            {stars.map(() => <span class="text-[1.6rem] leading-none">★</span>)}
+            {
+              stars.map(() => (
+                <span class="text-[1.2rem] leading-none sm:text-[1.6rem]">
+                  ★
+                </span>
+              ))
+            }
           </div>
           <div
-            class="text-[3.2rem] leading-none font-black tracking-[-0.05em] text-[#161616]"
+            class="text-[2.35rem] leading-none font-black tracking-[-0.05em] text-[#161616] sm:text-[3.2rem]"
           >
             10 Years
           </div>
-          <p class="mt-1 text-[1.45rem] font-medium text-[#3a3a3a]">
+          <p class="mt-1 text-lg font-medium text-[#3a3a3a] sm:text-[1.45rem]">
             Experince
           </p>
         </div>

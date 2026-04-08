@@ -18,7 +18,7 @@ const marqueeItems = [
   <div class="mx-auto max-w-[1280px]">
     <div class="text-center">
       <h2
-        class="text-[3.7rem] leading-[1.08] font-black tracking-[-0.08em] text-[#33415c] sm:text-[4.9rem]"
+        class="text-[2.7rem] leading-[1.08] font-black tracking-[-0.08em] text-[#33415c] sm:text-[4.9rem]"
       >
         Have an Awsome Project
         <br />
@@ -28,20 +28,20 @@ const marqueeItems = [
 
     <div class="mx-auto mt-8 max-w-[820px]">
       <div
-        class="flex flex-col gap-4 rounded-full border border-[#e4e9f0] bg-white px-4 py-3 shadow-[0_12px_30px_rgba(26,32,44,0.04)] sm:flex-row sm:items-center sm:justify-between"
+        class="flex flex-col gap-4 rounded-[1.8rem] border border-[#e4e9f0] bg-white px-4 py-3 shadow-[0_12px_30px_rgba(26,32,44,0.04)] sm:flex-row sm:items-center sm:justify-between sm:rounded-full"
       >
-        <div class="flex items-center gap-4 px-2">
+        <div class="flex items-center gap-3 px-1 sm:gap-4 sm:px-2">
           <div
-            class="flex h-[4.1rem] w-[4.1rem] items-center justify-center rounded-full bg-[#ffe9d6]"
+            class="flex h-[3.3rem] w-[3.3rem] items-center justify-center rounded-full bg-[#ffe9d6] sm:h-[4.1rem] sm:w-[4.1rem]"
           >
             <div
-              class="flex h-10 w-10 items-center justify-center rounded-2xl bg-[#ff8a37] text-[1.35rem] text-white"
+              class="flex h-8 w-8 items-center justify-center rounded-xl bg-[#ff8a37] text-base text-white sm:h-10 sm:w-10 sm:rounded-2xl sm:text-[1.35rem]"
             >
               ✉
             </div>
           </div>
           <div
-            class="text-[1.7rem] font-medium tracking-[-0.04em] text-[#161616]"
+            class="text-[1.15rem] font-medium tracking-[-0.04em] text-[#161616] sm:text-[1.7rem]"
           >
             Enter Email Address
           </div>
@@ -49,18 +49,18 @@ const marqueeItems = [
 
         <a
           href="mailto:hello@placeholder.com"
-          class="inline-flex min-h-[5rem] min-w-[9rem] items-center justify-center rounded-full bg-[#ff8937] px-8 text-[1.7rem] font-medium text-white transition hover:brightness-105"
+          class="inline-flex min-h-[3.9rem] min-w-[8rem] items-center justify-center rounded-full bg-[#ff8937] px-6 text-[1.3rem] font-medium text-white transition hover:brightness-105 sm:min-h-[5rem] sm:min-w-[9rem] sm:px-8 sm:text-[1.7rem]"
         >
           Send
         </a>
       </div>
 
       <div
-        class="mt-4 flex flex-wrap items-center justify-center gap-x-10 gap-y-3"
+        class="mt-4 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 sm:gap-x-10"
       >
         {
           badges.map((badge) => (
-            <div class="flex items-center gap-2 text-[1.05rem] font-medium text-[#1c1f26]">
+            <div class="flex items-center gap-2 text-sm font-medium text-[#1c1f26] sm:text-[1.05rem]">
               <span class="text-[1.15rem]">✦</span>
               <span>{badge}</span>
             </div>
@@ -70,13 +70,13 @@ const marqueeItems = [
     </div>
 
     <div
-      class="relative mt-14 h-[140px] overflow-hidden rounded-t-[2rem] bg-[#ff640f]"
+      class="relative mt-12 h-[100px] overflow-hidden rounded-t-[1.4rem] bg-[#ff640f] sm:mt-14 sm:h-[140px] sm:rounded-t-[2rem]"
     >
       <div
-        class="absolute inset-x-[-2rem] top-[2.25rem] -rotate-[3.2deg] bg-white py-4 shadow-[0_10px_30px_rgba(0,0,0,0.08)]"
+        class="absolute inset-x-[-2rem] top-[1.45rem] -rotate-[3.2deg] bg-white py-3 shadow-[0_10px_30px_rgba(0,0,0,0.08)] sm:top-[2.25rem] sm:py-4"
       >
         <div
-          class="flex min-w-max items-center justify-center gap-6 px-8 text-[2.1rem] leading-none font-medium tracking-[-0.05em] whitespace-nowrap text-black"
+          class="flex min-w-max items-center justify-center gap-4 px-6 text-[1.35rem] leading-none font-medium tracking-[-0.05em] whitespace-nowrap text-black sm:gap-6 sm:px-8 sm:text-[2.1rem]"
         >
           {marqueeItems.map((item) => <span>{item}</span>)}
           <span class="text-[#ff8937]">✦</span>

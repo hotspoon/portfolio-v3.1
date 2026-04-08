@@ -5,7 +5,7 @@ const stars = Array.from({ length: 5 })
 ---
 
 <section
-  class="relative overflow-hidden rounded-[3rem] px-4 py-12 text-white sm:px-6 lg:px-8"
+  class="relative overflow-hidden rounded-[1.9rem] px-4 py-10 text-white sm:rounded-[3rem] sm:px-6 sm:py-12 lg:px-8"
   style={`background-image: url(${textureBg.src}); background-size: cover; background-position: center;`}
 >
   <div class="absolute inset-0 bg-[#121212]/82"></div>
@@ -17,17 +17,20 @@ const stars = Array.from({ length: 5 })
   <div class="relative z-10 mx-auto max-w-[1200px]">
     <div class="mx-auto max-w-[760px] text-center">
       <h2
-        class="text-[3.35rem] leading-[1.08] font-black tracking-[-0.07em] text-white sm:text-[4rem]"
+        class="text-[2.3rem] leading-[1.08] font-black tracking-[-0.07em] text-white sm:text-[4rem]"
       >
         Testimonials That
         <span class="relative inline-block">
-          <span class="absolute -top-4 -right-7 text-[2.1rem] text-white"
+          <span
+            class="absolute -top-3 -right-5 hidden text-[2.1rem] text-white sm:block"
             >〴</span
           >
-          <span class="absolute -top-6 -right-4 text-[1.5rem] text-white"
+          <span
+            class="absolute -top-6 -right-4 hidden text-[1.5rem] text-white sm:block"
             >〳</span
           >
-          <span class="absolute -top-4 -right-2 text-[1.15rem] text-white"
+          <span
+            class="absolute -top-4 -right-2 hidden text-[1.15rem] text-white sm:block"
             >〵</span
           >
         </span>
@@ -36,7 +39,7 @@ const stars = Array.from({ length: 5 })
       </h2>
 
       <p
-        class="mx-auto mt-5 max-w-[760px] text-[1.05rem] leading-[1.45] text-white/78"
+        class="mx-auto mt-4 max-w-[760px] text-[0.95rem] leading-[1.55] text-white/78 sm:mt-5 sm:text-[1.05rem] sm:leading-[1.45]"
       >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed congue
         interdum ligula a dignissim. Lorem ipsum dolor sit amet, consectetur
@@ -45,21 +48,21 @@ const stars = Array.from({ length: 5 })
     </div>
 
     <div
-      class="pointer-events-none absolute top-[14.75rem] left-[23%] text-white/95"
+      class="pointer-events-none absolute top-[14.75rem] left-[23%] hidden text-white/95 lg:block"
     >
       <span class="block rotate-[-18deg] text-[2rem]">✦</span>
     </div>
     <div
-      class="pointer-events-none absolute top-[9.7rem] right-[22%] text-white/95"
+      class="pointer-events-none absolute top-[9.7rem] right-[22%] hidden text-white/95 lg:block"
     >
       <span class="block rotate-[18deg] text-[2rem]">✦</span>
     </div>
 
     <div
-      class="mt-16 grid grid-cols-[220px_minmax(0,1fr)_220px] items-center gap-5 overflow-hidden"
+      class="mt-10 grid grid-cols-1 items-center gap-4 overflow-hidden sm:mt-12 lg:mt-16 lg:grid-cols-[220px_minmax(0,1fr)_220px] lg:gap-5"
     >
       <article
-        class="relative -translate-x-12 rounded-[1.9rem] border border-white/12 bg-[rgba(255,255,255,0.08)] p-5 opacity-90 backdrop-blur-md"
+        class="relative hidden -translate-x-12 rounded-[1.9rem] border border-white/12 bg-[rgba(255,255,255,0.08)] p-5 opacity-90 backdrop-blur-md lg:block"
       >
         <div
           class="mb-5 text-right text-[7rem] leading-none font-bold tracking-[-0.08em] text-[#667085]/55"
@@ -73,37 +76,47 @@ const stars = Array.from({ length: 5 })
       </article>
 
       <article
-        class="relative rounded-[1.9rem] border border-white/14 bg-[rgba(255,255,255,0.11)] p-6 shadow-[0_20px_40px_rgba(0,0,0,0.14)] backdrop-blur-md"
+        class="relative rounded-[1.5rem] border border-white/14 bg-[rgba(255,255,255,0.11)] p-4 shadow-[0_20px_40px_rgba(0,0,0,0.14)] backdrop-blur-md sm:rounded-[1.9rem] sm:p-6"
       >
-        <div class="mb-4 flex items-start justify-between gap-5">
-          <div class="flex items-center gap-4">
+        <div class="mb-4 flex items-start justify-between gap-4 sm:gap-5">
+          <div class="flex items-center gap-3 sm:gap-4">
             <div
-              class="h-14 w-14 rounded-full bg-[radial-gradient(circle_at_35%_30%,#f8d1a1_0%,#8d664f_38%,#324b68_100%)] ring-2 ring-white/16"
+              class="h-12 w-12 rounded-full bg-[radial-gradient(circle_at_35%_30%,#f8d1a1_0%,#8d664f_38%,#324b68_100%)] ring-2 ring-white/16 sm:h-14 sm:w-14"
             >
             </div>
             <div>
               <div
-                class="text-[2rem] leading-none font-bold tracking-[-0.05em] text-white"
+                class="text-[1.45rem] leading-none font-bold tracking-[-0.05em] text-white sm:text-[2rem]"
               >
                 Jayesh Patil
               </div>
-              <div class="mt-1 text-[1.05rem] text-white/70">CEO, Lirante</div>
+              <div class="mt-1 text-[0.95rem] text-white/70 sm:text-[1.05rem]">
+                CEO, Lirante
+              </div>
             </div>
           </div>
 
           <div
-            class="text-right text-[7rem] leading-none font-bold tracking-[-0.08em] text-[#667085]/55"
+            class="text-right text-[4.8rem] leading-none font-bold tracking-[-0.08em] text-[#667085]/55 sm:text-[7rem]"
           >
             ”
           </div>
         </div>
 
-        <div class="mb-4 flex items-center gap-2 text-[#f58a3a]">
-          {stars.map(() => <span class="text-[2rem] leading-none">★</span>)}
-          <span class="ml-1 text-[2rem] font-bold text-white">5.0</span>
+        <div class="mb-4 flex items-center gap-1.5 text-[#f58a3a] sm:gap-2">
+          {
+            stars.map(() => (
+              <span class="text-[1.55rem] leading-none sm:text-[2rem]">★</span>
+            ))
+          }
+          <span class="ml-1 text-[1.65rem] font-bold text-white sm:text-[2rem]">
+            5.0
+          </span>
         </div>
 
-        <p class="max-w-[780px] text-[1.08rem] leading-[1.5] text-white/90">
+        <p
+          class="max-w-[780px] text-[0.98rem] leading-[1.55] text-white/90 sm:text-[1.08rem] sm:leading-[1.5]"
+        >
           consectetur adipiscing elit. Sed congue interdum ligula a dignissim.
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lobortis
           orci elementum egestas lobortis.Sed lobortis orci elementum egestas
@@ -112,7 +125,7 @@ const stars = Array.from({ length: 5 })
       </article>
 
       <article
-        class="relative translate-x-12 rounded-[1.9rem] border border-white/12 bg-[rgba(255,255,255,0.08)] p-5 opacity-90 backdrop-blur-md"
+        class="relative hidden translate-x-12 rounded-[1.9rem] border border-white/12 bg-[rgba(255,255,255,0.08)] p-5 opacity-90 backdrop-blur-md lg:block"
       >
         <div class="mb-4 flex items-center gap-3">
           <div
