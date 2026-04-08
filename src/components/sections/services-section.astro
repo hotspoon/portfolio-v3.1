@@ -1,21 +1,24 @@
 ---
 import serviceBg from "@/assets/img/service-bg.png"
+import serviceOne from "@/assets/img/service-1.png"
+import serviceTwo from "@/assets/img/service-2.png"
+import serviceThree from "@/assets/img/service-3.png"
 
 const serviceCards = [
   {
     title: "UI/UX Design",
     featured: false,
-    preview: "home",
+    image: serviceOne,
   },
   {
     title: "Web Design",
     featured: true,
-    preview: "food",
+    image: serviceTwo,
   },
   {
     title: "Landing Page",
     featured: false,
-    preview: "home",
+    image: serviceThree,
   },
 ]
 ---
@@ -31,14 +34,16 @@ const serviceCards = [
   </div>
 
   <div class="relative z-10 mx-auto max-w-[1080px]">
-    <div class="mb-8 grid items-start gap-4 lg:grid-cols-[1fr_420px]">
+    <div
+      class="mb-8 grid items-start gap-4 sm:mb-10 lg:grid-cols-[1fr_430px] lg:gap-8"
+    >
       <h2
-        class="text-[2.2rem] leading-none font-black tracking-[-0.065em] text-white sm:text-[2.55rem]"
+        class="text-[2.2rem] leading-none font-black tracking-[-0.065em] text-white sm:text-[2.85rem]"
       >
         My <span class="text-[#f39a52]">Services</span>
       </h2>
       <p
-        class="pt-1 text-sm leading-[1.45] text-white/82 lg:text-left lg:text-[15px]"
+        class="max-w-[30rem] pt-1 text-sm leading-[1.45] text-white/82 lg:ml-auto lg:text-left lg:text-[15px]"
       >
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Duis lacus
         nunc, posuere in justo vulputate, bibendum sodales.
@@ -50,128 +55,33 @@ const serviceCards = [
         serviceCards.map((card) => (
           <article
             class:list={[
-              "relative rounded-[1.5rem] border bg-[linear-gradient(180deg,rgba(255,255,255,0.08)_0%,rgba(255,255,255,0.03)_100%)] pt-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] sm:rounded-[2rem] sm:pt-5",
+              "relative rounded-[1.55rem] border bg-[linear-gradient(180deg,rgba(255,255,255,0.08)_0%,rgba(255,255,255,0.03)_100%)] pt-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-[2px] sm:rounded-[2rem] sm:pt-5",
               card.featured
-                ? "border-[#7d4dff] shadow-[0_0_0_1px_rgba(125,77,255,0.7)]"
+                ? "border-[#8d5cff] shadow-[0_0_0_1px_rgba(141,92,255,0.78)]"
                 : "border-white/22",
             ]}
           >
-            <div class="px-4 pb-4 text-base font-semibold text-white sm:px-6 sm:pb-5 sm:text-[1.1rem]">
-              {card.title}
+            <div class="px-5 pb-4 sm:px-6 sm:pb-5">
+              <div class="text-[1.02rem] font-semibold text-white sm:text-[1.1rem]">
+                {card.title}
+              </div>
+              {card.featured && (
+                <div class="mt-2 h-[4px] w-[9.5rem] rounded-full bg-[#8d5cff]" />
+              )}
             </div>
             <div class="h-px w-full bg-white/18" />
-            <div class="relative overflow-hidden px-3 pt-7 pb-5 sm:px-4 sm:pt-9 sm:pb-6">
+            <div class="relative overflow-hidden px-3 pt-7 pb-6 sm:px-4 sm:pt-9 sm:pb-7">
               <div class="absolute top-4 right-4 left-4 h-6 rounded-t-[1.2rem] bg-[#8c8c8c]/36 blur-[0.5px] sm:top-5 sm:right-6 sm:left-6 sm:h-8 sm:rounded-t-[1.65rem]" />
-              <div class="absolute top-8 right-5 h-14 w-14 rounded-full bg-white/28 blur-xl sm:top-10 sm:right-7 sm:h-18 sm:w-18" />
-              <div class="rounded-[1.2rem] bg-white/94 px-2.5 pt-4 pb-2.5 shadow-[0_16px_30px_rgba(0,0,0,0.14)] sm:rounded-[1.55rem] sm:px-3 sm:pt-5 sm:pb-3">
-                {card.preview === "food" ? (
-                  <div class="grid min-h-[210px] grid-cols-[52px_1fr_34px] items-end gap-2 sm:min-h-[250px] sm:grid-cols-[68px_1fr_46px] sm:gap-3">
-                    <div class="rounded-[0.85rem] bg-white p-1.5 shadow-[0_10px_18px_rgba(0,0,0,0.08)] sm:rounded-[1rem] sm:p-2">
-                      <div class="rounded-[0.8rem] border border-[#ece8e2] bg-[#fffdfa] p-2">
-                        <div class="mb-2 h-2 w-8 rounded-full bg-[#171717]/10" />
-                        <div class="space-y-2">
-                          <div class="h-10 rounded-[0.75rem] bg-[#f5c58d]" />
-                          <div class="h-2 rounded-full bg-[#171717]/10" />
-                          <div class="h-2 w-3/4 rounded-full bg-[#f39a52]/60" />
-                          <div class="h-6 rounded-full bg-[#171717]/92" />
-                        </div>
-                      </div>
-                    </div>
-                    <div class="rounded-[1rem] bg-white p-1.5 shadow-[0_10px_18px_rgba(0,0,0,0.08)] sm:rounded-[1.15rem] sm:p-2">
-                      <div class="rounded-[0.95rem] border border-[#ece8e2] bg-[#fffdfa] p-3">
-                        <div class="mb-3 flex items-center justify-between">
-                          <div class="h-2 w-12 rounded-full bg-[#171717]/12" />
-                          <div class="flex gap-1">
-                            <div class="h-2 w-2 rounded-full bg-[#171717]/18" />
-                            <div class="h-2 w-2 rounded-full bg-[#f39a52]/65" />
-                          </div>
-                        </div>
-                        <div class="grid grid-cols-2 gap-2">
-                          <div class="space-y-2 rounded-[0.9rem] bg-[#fff6ef] p-2">
-                            <div class="h-8 rounded-[0.7rem] bg-[#f3b069]" />
-                            <div class="h-2 rounded-full bg-[#171717]/12" />
-                            <div class="h-2 w-4/5 rounded-full bg-[#171717]/12" />
-                          </div>
-                          <div class="space-y-2 rounded-[0.9rem] bg-[#fff6ef] p-2">
-                            <div class="h-8 rounded-[0.7rem] bg-[#f39a52]" />
-                            <div class="h-2 rounded-full bg-[#171717]/12" />
-                            <div class="h-2 w-4/5 rounded-full bg-[#171717]/12" />
-                          </div>
-                          <div class="col-span-2 rounded-[1rem] bg-[#fff3e6] p-3">
-                            <div class="mb-2 h-3 w-20 rounded-full bg-[#171717]/12" />
-                            <div class="flex items-end gap-3">
-                              <div class="h-10 w-10 rounded-full bg-[#f0b06e]" />
-                              <div class="h-14 flex-1 rounded-[1rem] bg-[#f39a52]" />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="rounded-[0.85rem] bg-white p-1 shadow-[0_10px_18px_rgba(0,0,0,0.08)] sm:rounded-[1rem] sm:p-1.5">
-                      <div class="rounded-[0.8rem] border border-[#ece8e2] bg-[#fffdfa] p-2">
-                        <div class="mb-2 h-2 rounded-full bg-[#171717]/10" />
-                        <div class="space-y-1.5">
-                          <div class="h-6 rounded-[0.7rem] bg-[#fff1de]" />
-                          <div class="h-6 rounded-[0.7rem] bg-[#fff1de]" />
-                          <div class="h-6 rounded-[0.7rem] bg-[#fff1de]" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ) : (
-                  <div class="grid min-h-[210px] grid-cols-[44px_1fr_44px] items-end gap-2 sm:min-h-[250px] sm:grid-cols-[58px_1fr_58px] sm:gap-3">
-                    <div class="rounded-[0.85rem] bg-white p-1.5 shadow-[0_10px_18px_rgba(0,0,0,0.08)] sm:rounded-[1rem] sm:p-2">
-                      <div class="rounded-[0.8rem] border border-[#ece8e2] bg-[#fffdfa] p-2">
-                        <div class="mb-2 h-2 rounded-full bg-[#171717]/10" />
-                        <div class="space-y-2">
-                          <div class="h-16 rounded-[0.85rem] bg-[#c4ad8f]" />
-                          <div class="grid grid-cols-2 gap-1.5">
-                            <div class="h-5 rounded-[0.55rem] bg-[#f3ede5]" />
-                            <div class="h-5 rounded-[0.55rem] bg-[#f3ede5]" />
-                          </div>
-                          <div class="h-2 w-3/4 rounded-full bg-[#171717]/12" />
-                        </div>
-                      </div>
-                    </div>
-                    <div class="rounded-[1rem] bg-white p-1.5 shadow-[0_10px_18px_rgba(0,0,0,0.08)] sm:rounded-[1.15rem] sm:p-2">
-                      <div class="rounded-[0.95rem] border border-[#ece8e2] bg-[#fffdfa] p-3">
-                        <div class="mb-3 flex items-center justify-between">
-                          <div class="h-2 w-14 rounded-full bg-[#171717]/12" />
-                          <div class="h-2 w-8 rounded-full bg-[#f2b86d]/80" />
-                        </div>
-                        <div class="space-y-2">
-                          <div class="grid grid-cols-2 gap-2">
-                            <div class="h-20 rounded-[0.85rem] bg-[#c8b294]" />
-                            <div class="h-20 rounded-[0.85rem] bg-[#bfa588]" />
-                          </div>
-                          <div class="rounded-[0.9rem] bg-[#efe7dd] p-2">
-                            <div class="mb-2 grid grid-cols-2 gap-2">
-                              <div class="h-8 rounded-[0.7rem] bg-white" />
-                              <div class="h-8 rounded-[0.7rem] bg-[#f5ca95]" />
-                            </div>
-                            <div class="h-2 rounded-full bg-[#171717]/12" />
-                          </div>
-                          <div class="h-7 rounded-full bg-[#171717]/88" />
-                        </div>
-                      </div>
-                    </div>
-                    <div class="rounded-[0.85rem] bg-white p-1.5 shadow-[0_10px_18px_rgba(0,0,0,0.08)] sm:rounded-[1rem] sm:p-2">
-                      <div class="rounded-[0.8rem] border border-[#ece8e2] bg-[#fffdfa] p-2">
-                        <div class="mb-2 h-2 rounded-full bg-[#171717]/10" />
-                        <div class="space-y-2">
-                          <div class="h-16 rounded-[0.85rem] bg-[#c4ad8f]" />
-                          <div class="grid grid-cols-2 gap-1.5">
-                            <div class="h-5 rounded-[0.55rem] bg-[#f3ede5]" />
-                            <div class="h-5 rounded-[0.55rem] bg-[#f3ede5]" />
-                          </div>
-                          <div class="h-2 w-3/4 rounded-full bg-[#171717]/12" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                )}
+              <div class="absolute top-10 right-5 h-16 w-16 rounded-full bg-white/30 blur-xl sm:top-11 sm:right-7 sm:h-20 sm:w-20" />
+              <div class="relative overflow-hidden rounded-[1.25rem] bg-white/94 shadow-[0_16px_30px_rgba(0,0,0,0.14)] sm:rounded-[1.55rem]">
+                <img
+                  src={card.image.src}
+                  alt={card.title}
+                  class="h-[250px] w-full object-cover object-center sm:h-[302px]"
+                  loading="lazy"
+                />
               </div>
-              <div class="absolute right-2 bottom-1 flex h-[4.1rem] w-[4.1rem] items-center justify-center rounded-full bg-[#1c2941] text-[2rem] text-white shadow-[0_14px_24px_rgba(13,21,39,0.5)] sm:right-3 sm:h-[5.1rem] sm:w-[5.1rem] sm:text-[2.35rem]">
+              <div class="absolute right-2 bottom-1 flex h-[4.35rem] w-[4.35rem] items-center justify-center rounded-full bg-[#1c2941] text-[2rem] text-white shadow-[0_14px_24px_rgba(13,21,39,0.5)] sm:right-3 sm:bottom-2 sm:h-[5.4rem] sm:w-[5.4rem] sm:text-[2.5rem]">
                 ↗
               </div>
             </div>
