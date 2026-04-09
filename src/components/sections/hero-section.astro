@@ -16,7 +16,8 @@ const stars = Array.from({ length: 5 })
   >
     <div class="relative z-20 mx-auto max-w-[980px] text-center">
       <div
-        class="relative z-20 inline-flex items-center gap-2 rounded-full border border-[#1d1d1d]/35 bg-white px-4 py-2 text-sm font-semibold text-[#1d1d1d] shadow-[0_8px_18px_rgba(0,0,0,0.05)] sm:gap-3 sm:px-5 md:text-base xl:text-lg"
+        class="float-gentle relative z-20 inline-flex items-center gap-2 rounded-full border border-[#1d1d1d]/35 bg-white px-4 py-2 text-sm font-semibold text-[#1d1d1d] shadow-[0_8px_18px_rgba(0,0,0,0.05)] sm:gap-3 sm:px-5 md:text-base xl:text-lg"
+        data-reveal="scale"
       >
         <span>Hello!</span>
         <img src={helloSpark.src} alt="" class="h-4 w-auto sm:h-5" />
@@ -24,6 +25,7 @@ const stars = Array.from({ length: 5 })
 
       <h1
         class="mt-4 text-[2.55rem] leading-[0.95] font-black tracking-[-0.075em] text-[#141414] sm:text-[3.35rem] md:text-[4.15rem] lg:text-[4.9rem] xl:text-[5.45rem] 2xl:text-[6.1rem]"
+        data-reveal
       >
         I'm <span class="text-[#f39a52]">Faris</span><br />
         Front-End Developer
@@ -31,10 +33,10 @@ const stars = Array.from({ length: 5 })
     </div>
 
     <div
-      class="relative mt-5 grid gap-6 md:mt-8 md:gap-8 xl:grid-cols-[minmax(220px,1fr)_minmax(560px,820px)_minmax(220px,1fr)] xl:items-center"
+      class="relative mt-5 grid gap-6 md:-mt-10 md:gap-8 xl:-mt-16 xl:grid-cols-[minmax(220px,1fr)_minmax(560px,820px)_minmax(220px,1fr)] xl:items-center"
     >
       <aside class="order-2 flex justify-center xl:order-none xl:justify-start">
-        <div class="max-w-[320px] text-center xl:mt-8 xl:text-left">
+        <div class="max-w-[320px] text-center xl:mt-8 xl:text-left" data-reveal>
           <div
             class="mb-3 text-4xl leading-none font-black text-[#4b5563] sm:text-5xl"
           >
@@ -50,28 +52,33 @@ const stars = Array.from({ length: 5 })
       </aside>
 
       <div
-        class="relative order-1 mx-auto flex min-h-[360px] w-full max-w-[860px] items-end justify-center overflow-visible sm:min-h-[460px] md:min-h-[560px] lg:min-h-[620px] xl:order-none xl:min-h-[680px]"
+        class="relative order-1 mx-auto flex min-h-[360px] w-full max-w-[860px] items-end justify-center overflow-visible sm:min-h-[460px] md:min-h-[620px] lg:min-h-[700px] xl:order-none xl:min-h-[760px]"
       >
         <img
           src={accentStroke.src}
           alt=""
-          class="absolute top-[6.5rem] left-[32%] hidden w-14 -translate-x-1/3 xl:block 2xl:w-16"
+          class="float-slow absolute top-[6.5rem] left-[32%] hidden w-14 -translate-x-1/3 xl:block 2xl:w-16"
         />
         <img
           src={heroEllipse.src}
           alt=""
-          class="absolute bottom-0 z-0 w-[118%] max-w-[320px] sm:max-w-[420px] md:max-w-[500px] lg:max-w-[560px] xl:max-w-[620px]"
+          class="absolute bottom-0 z-0 w-[128%] max-w-[340px] sm:max-w-[460px] md:max-w-[580px] lg:max-w-[650px] xl:max-w-[720px]"
+          data-reveal="scale"
         />
         <img
           src={heroImage.src}
           alt="Portrait illustration"
-          class="absolute bottom-0 left-1/2 z-30 h-[95%] w-auto max-w-none -translate-x-1/2 object-contain drop-shadow-[0_18px_30px_rgba(77,43,12,0.18)] sm:h-[97%] md:h-[98%] xl:h-full"
+          class="absolute bottom-0 left-1/2 z-30 h-[108%] w-auto max-w-none -translate-x-1/2 object-contain drop-shadow-[0_18px_30px_rgba(77,43,12,0.18)] sm:h-[112%] md:h-[118%] xl:h-[110%]"
+          data-reveal="scale"
         />
 
         <div
           class="absolute right-1/2 bottom-2 z-40 w-[min(96%,320px)] translate-x-1/2 rounded-[1.25rem] border border-white/35 bg-[rgba(119,86,58,0.23)] p-2.5 shadow-[0_18px_36px_rgba(88,56,31,0.18)] backdrop-blur-md sm:bottom-3 sm:w-[min(92%,360px)] sm:rounded-[1.55rem] sm:p-3 md:w-[min(78%,420px)] xl:right-auto xl:bottom-5 xl:left-1/2 xl:w-[min(72%,430px)] xl:-translate-x-1/2 xl:rounded-[1.75rem]"
+          data-reveal="scale"
         >
-          <div class="grid grid-cols-1 items-center gap-2 sm:grid-cols-[1.1fr_0.9fr] sm:gap-3">
+          <div
+            class="grid grid-cols-1 items-center gap-2 sm:grid-cols-[1.1fr_0.9fr] sm:gap-3"
+          >
             <a
               href="#project"
               class="rounded-full bg-[#f39a52] px-4 py-3 text-center text-base font-bold whitespace-nowrap text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.25)] transition hover:brightness-105 sm:px-6 sm:py-4 sm:text-lg xl:text-xl"
@@ -89,7 +96,7 @@ const stars = Array.from({ length: 5 })
       </div>
 
       <aside class="order-3 flex justify-center xl:justify-end">
-        <div class="text-center xl:mt-8 xl:text-right">
+        <div class="text-center xl:mt-8 xl:text-right" data-reveal>
           <div
             class="mb-3 flex justify-center gap-1 text-[#f39a52] xl:justify-end"
           >
@@ -106,7 +113,9 @@ const stars = Array.from({ length: 5 })
           >
             5+ Years
           </div>
-          <p class="mt-1 text-base font-medium text-[#3a3a3a] sm:text-[1.2rem] xl:text-[1.45rem]">
+          <p
+            class="mt-1 text-base font-medium text-[#3a3a3a] sm:text-[1.2rem] xl:text-[1.45rem]"
+          >
             Experience
           </p>
         </div>

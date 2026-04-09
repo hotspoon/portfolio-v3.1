@@ -39,11 +39,13 @@ const serviceCards = [
     >
       <h2
         class="text-[2.1rem] leading-none font-black tracking-[-0.065em] text-white sm:text-[2.6rem] lg:text-[3rem] 2xl:text-[3.3rem]"
+        data-reveal
       >
         My <span class="text-[#f39a52]">Focus</span>
       </h2>
       <p
         class="max-w-[30rem] pt-1 text-sm leading-[1.45] text-white/82 lg:ml-auto lg:text-left lg:text-[15px]"
+        data-reveal
       >
         I build scalable frontend systems for banking, healthcare, and payment
         platforms with strong attention to component reuse, API integration,
@@ -56,11 +58,12 @@ const serviceCards = [
         serviceCards.map((card) => (
           <article
             class:list={[
-              "relative rounded-[1.35rem] border bg-[linear-gradient(180deg,rgba(255,255,255,0.08)_0%,rgba(255,255,255,0.03)_100%)] pt-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-[2px] sm:rounded-[1.7rem] sm:pt-5 xl:rounded-[2rem]",
+              "group hover-lift relative rounded-[1.35rem] border bg-[linear-gradient(180deg,rgba(255,255,255,0.08)_0%,rgba(255,255,255,0.03)_100%)] pt-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-[2px] sm:rounded-[1.7rem] sm:pt-5 xl:rounded-[2rem]",
               card.featured
                 ? "border-[#8d5cff] shadow-[0_0_0_1px_rgba(141,92,255,0.78)]"
                 : "border-white/22",
             ]}
+            data-reveal
           >
             <div class="px-5 pb-4 sm:px-6 sm:pb-5">
               <div class="text-[1.02rem] font-semibold text-white sm:text-[1.1rem]">
@@ -78,7 +81,7 @@ const serviceCards = [
                 <img
                   src={card.image.src}
                   alt={card.title}
-                  class="h-[220px] w-full object-cover object-center sm:h-[260px] xl:h-[302px]"
+                  class="h-[220px] w-full object-cover object-center transition duration-700 group-hover:scale-[1.04] sm:h-[260px] xl:h-[302px]"
                   loading="lazy"
                 />
               </div>

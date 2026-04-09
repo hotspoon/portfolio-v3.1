@@ -42,6 +42,7 @@ const blogCards = [
       <div>
         <h2
           class="text-[2.2rem] leading-[0.98] font-black tracking-[-0.075em] text-[#2f3b52] sm:text-[3rem] lg:text-[3.5rem] xl:text-[4.2rem]"
+          data-reveal
         >
           Learning &
           <br />
@@ -54,6 +55,7 @@ const blogCards = [
         target="_blank"
         rel="noreferrer"
         class="inline-flex min-h-[50px] min-w-[100px] items-center justify-center rounded-full bg-[#f58a3a] px-5 text-base font-bold text-white transition hover:brightness-105 sm:mt-4 sm:min-h-[54px] sm:min-w-[110px] sm:px-6 sm:text-lg"
+        data-reveal="scale"
       >
         View More
       </a>
@@ -62,21 +64,21 @@ const blogCards = [
     <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
       {
         blogCards.map((card) => (
-          <article>
+          <article data-reveal>
             <div class="relative">
               <a
                 href={card.href}
                 target="_blank"
                 rel="noreferrer"
                 class:list={[
-                  "overflow-hidden rounded-[1.5rem] border-[3px] bg-white sm:rounded-[2rem]",
+                  "hover-lift overflow-hidden rounded-[1.5rem] border-[3px] bg-white sm:rounded-[2rem]",
                   card.frame,
                 ]}
               >
                 <img
                   src={card.image.src}
                   alt={card.title}
-                  class="h-[240px] w-full object-cover object-center sm:h-[300px] xl:h-[360px]"
+                  class="h-[240px] w-full object-cover object-center transition duration-700 hover:scale-[1.04] sm:h-[300px] xl:h-[360px]"
                 />
               </a>
 

@@ -11,11 +11,16 @@ const stats = [
   <div
     class="mx-auto grid max-w-[1240px] items-center gap-8 rounded-[1.6rem] bg-[#f3f6fb] px-4 py-8 sm:px-6 sm:py-10 md:px-8 lg:grid-cols-[0.95fr_1fr] lg:gap-10 lg:px-10 lg:py-12 xl:rounded-[2rem] xl:px-12"
   >
-    <div class="relative mx-auto flex w-full max-w-[520px] justify-center">
+    <div
+      class="relative mx-auto flex w-full max-w-[520px] items-end justify-center"
+    >
+      <!-- Background div -->
       <div
-        class="absolute -bottom-2 left-1/2 h-[76%] w-[66%] -translate-x-1/2 rounded-[2rem] bg-[#ffb36e] sm:-bottom-3 sm:rounded-[2.5rem] xl:rounded-[3rem]"
+        class="absolute bottom-0 left-1/2 h-[76%] w-[66%] -translate-x-1/2 rounded-[2rem] bg-[#ffb36e] sm:h-[78%] sm:w-[68%] sm:rounded-[2.5rem] lg:h-[80%] lg:w-[70%] xl:rounded-[3rem]"
       >
       </div>
+
+      <!-- Portrait image -->
       <img
         src={aboutImage.src}
         alt="About section portrait"
@@ -26,6 +31,7 @@ const stats = [
     <div class="mx-auto w-full max-w-[520px] text-center lg:text-left">
       <h2
         class="text-[2.25rem] leading-[0.98] font-black tracking-[-0.07em] text-[#2f3b52] sm:text-[3rem] lg:text-[3.6rem] xl:text-[4.25rem]"
+        data-reveal
       >
         Why <span class="text-[#ff8a37]">work with me</span><span
           class="text-[#2f3b52]">?</span
@@ -34,11 +40,12 @@ const stats = [
 
       <p
         class="mt-5 max-w-[470px] text-base leading-[1.45] text-[#98a3b8] sm:mt-7 sm:text-[1.08rem] lg:max-w-[440px]"
+        data-reveal
       >
         Frontend Developer based in Jakarta, Indonesia with 5+ years of
         experience building scalable and high-performance web applications. I
-        work across React, Next.js, Vue, and enterprise frontend systems with
-        a strong focus on reusable components, maintainability, and reliable
+        work across React, Next.js, Vue, and enterprise frontend systems with a
+        strong focus on reusable components, maintainability, and reliable
         product delivery.
       </p>
 
@@ -47,7 +54,10 @@ const stats = [
       >
         {
           stats.map((stat) => (
-            <div>
+            <div
+              class="hover-lift rounded-[1.2rem] bg-white/70 p-4 shadow-[0_10px_25px_rgba(35,43,59,0.05)]"
+              data-reveal="scale"
+            >
               <div class="text-[2.35rem] leading-none font-black tracking-[-0.06em] text-[#2f3b52] sm:text-[3.15rem]">
                 {stat.value}
               </div>
