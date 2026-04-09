@@ -25,20 +25,20 @@ const serviceCards = [
 
 <section
   id="service"
-  class="relative overflow-hidden px-4 py-10 text-white sm:px-6 lg:px-8"
+  class="relative overflow-hidden px-4 py-10 text-white sm:px-6 lg:px-8 xl:px-10"
   style={`background-image: url(${serviceBg.src}); background-size: cover; background-position: center;`}
 >
   <div
-    class="absolute inset-0 rounded-[1.75rem] bg-[#121212]/88 sm:rounded-[2.5rem]"
+    class="absolute inset-0 rounded-[1.5rem] bg-[#121212]/88 sm:rounded-[2rem] xl:rounded-[2.5rem]"
   >
   </div>
 
   <div class="relative z-10 mx-auto max-w-[1080px]">
     <div
-      class="mb-8 grid items-start gap-4 sm:mb-10 lg:grid-cols-[1fr_430px] lg:gap-8"
+      class="mb-8 grid items-start gap-4 sm:mb-10 lg:grid-cols-[1fr_minmax(320px,430px)] lg:gap-8 xl:mb-12"
     >
       <h2
-        class="text-[2.2rem] leading-none font-black tracking-[-0.065em] text-white sm:text-[2.85rem]"
+        class="text-[2.1rem] leading-none font-black tracking-[-0.065em] text-white sm:text-[2.6rem] lg:text-[3rem] 2xl:text-[3.3rem]"
       >
         My <span class="text-[#f39a52]">Focus</span>
       </h2>
@@ -51,12 +51,12 @@ const serviceCards = [
       </p>
     </div>
 
-    <div class="grid gap-5 md:grid-cols-3">
+    <div class="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
       {
         serviceCards.map((card) => (
           <article
             class:list={[
-              "relative rounded-[1.55rem] border bg-[linear-gradient(180deg,rgba(255,255,255,0.08)_0%,rgba(255,255,255,0.03)_100%)] pt-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-[2px] sm:rounded-[2rem] sm:pt-5",
+              "relative rounded-[1.35rem] border bg-[linear-gradient(180deg,rgba(255,255,255,0.08)_0%,rgba(255,255,255,0.03)_100%)] pt-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-[2px] sm:rounded-[1.7rem] sm:pt-5 xl:rounded-[2rem]",
               card.featured
                 ? "border-[#8d5cff] shadow-[0_0_0_1px_rgba(141,92,255,0.78)]"
                 : "border-white/22",
@@ -67,18 +67,18 @@ const serviceCards = [
                 {card.title}
               </div>
               {card.featured && (
-                <div class="mt-2 h-[4px] w-[9.5rem] rounded-full bg-[#8d5cff]" />
+                <div class="mt-2 h-[4px] w-[7.5rem] rounded-full bg-[#8d5cff] sm:w-[9.5rem]" />
               )}
             </div>
             <div class="h-px w-full bg-white/18" />
             <div class="relative overflow-hidden px-3 pt-7 pb-6 sm:px-4 sm:pt-9 sm:pb-7">
               <div class="absolute top-4 right-4 left-4 h-6 rounded-t-[1.2rem] bg-[#8c8c8c]/36 blur-[0.5px] sm:top-5 sm:right-6 sm:left-6 sm:h-8 sm:rounded-t-[1.65rem]" />
               <div class="absolute top-10 right-5 h-16 w-16 rounded-full bg-white/30 blur-xl sm:top-11 sm:right-7 sm:h-20 sm:w-20" />
-              <div class="relative overflow-hidden rounded-[1.25rem] bg-white/94 shadow-[0_16px_30px_rgba(0,0,0,0.14)] sm:rounded-[1.55rem]">
+              <div class="relative overflow-hidden rounded-[1.1rem] bg-white/94 shadow-[0_16px_30px_rgba(0,0,0,0.14)] sm:rounded-[1.35rem] xl:rounded-[1.55rem]">
                 <img
                   src={card.image.src}
                   alt={card.title}
-                  class="h-[250px] w-full object-cover object-center sm:h-[302px]"
+                  class="h-[220px] w-full object-cover object-center sm:h-[260px] xl:h-[302px]"
                   loading="lazy"
                 />
               </div>
