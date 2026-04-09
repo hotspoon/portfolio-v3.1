@@ -3,25 +3,25 @@ import textureBg from "@/assets/img/service-bg.png"
 
 const testimonials = [
   {
-    name: "Jayesh Patil",
-    role: "CEO, Lirante",
+    name: "Enterprise Delivery",
+    role: "Frontend Engineering Focus",
     rating: 5,
     quote:
-      "Consectetur adipiscing elit. Sed congue interdum ligula a dignissim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lobortis orci elementum egestas lobortis.",
+      "Experienced in building frontend features for banking and payment systems, including transaction-heavy flows that require reliability, maintainability, and careful integration work.",
   },
   {
-    name: "Nadia Rahma",
-    role: "Founder, Studio North",
+    name: "Testing Mindset",
+    role: "Quality & Reliability",
     rating: 5,
     quote:
-      "Faris helped turn a rough concept into a polished website with a strong visual direction. The final result felt premium, fast, and much easier to present to clients.",
+      "Strong hands-on work with Jest and React Testing Library, with practical experience reducing bugs, improving validation quality, and making releases safer for product teams.",
   },
   {
-    name: "Arga Pranata",
-    role: "Product Lead, Hublink",
-    rating: 4.9,
+    name: "Reusable Systems",
+    role: "Scalable Frontend Approach",
+    rating: 5,
     quote:
-      "Communication was smooth, revisions were thoughtful, and the execution stayed consistent from the first section to the last. It felt like working with someone who really cares about the craft.",
+      "Focused on reusable UI components, API integration layers, and maintainable code structure across React, Next.js, Vue, and enterprise product environments.",
   },
 ]
 
@@ -65,9 +65,9 @@ const stars = Array.from({ length: 5 })
       <p
         class="mx-auto mt-4 max-w-[760px] text-[0.95rem] leading-[1.55] text-white/78 sm:mt-5 sm:text-[1.05rem] sm:leading-[1.45]"
       >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed congue
-        interdum ligula a dignissim. Lorem ipsum dolor sit amet, consectetur
-        adipiscing elit. Sed lobortis orci elementum egestas lobortis.
+        A quick snapshot of the strengths highlighted throughout my frontend
+        experience, from enterprise product delivery and testing quality to
+        reusable architecture and performance-minded implementation.
       </p>
     </div>
 
@@ -86,7 +86,7 @@ const stars = Array.from({ length: 5 })
       class="relative mx-auto mt-10 max-w-[980px] sm:mt-12 lg:mt-16"
       data-testimonials-carousel
     >
-      <div class="overflow-hidden sm:px-14" data-embla-viewport>
+      <div class="touch-pan-y overflow-hidden sm:px-14" data-embla-viewport>
         <div class="-ml-4 flex" data-embla-container>
           {
             testimonials.map((testimonial) => (
@@ -139,7 +139,7 @@ const stars = Array.from({ length: 5 })
 
       <button
         type="button"
-        class="absolute top-1/2 left-0 hidden h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/14 bg-white/10 text-xl text-white backdrop-blur-md transition hover:bg-white/16 disabled:cursor-not-allowed disabled:opacity-35 sm:flex"
+        class="absolute top-1/2 left-2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/14 bg-white/10 text-xl text-white backdrop-blur-md transition hover:bg-white/16 disabled:cursor-not-allowed disabled:opacity-35 sm:left-0 sm:h-11 sm:w-11"
         aria-label="Previous testimonial"
         data-embla-prev
       >
@@ -148,7 +148,7 @@ const stars = Array.from({ length: 5 })
 
       <button
         type="button"
-        class="absolute top-1/2 right-0 hidden h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/14 bg-white/10 text-xl text-white backdrop-blur-md transition hover:bg-white/16 disabled:cursor-not-allowed disabled:opacity-35 sm:flex"
+        class="absolute top-1/2 right-2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/14 bg-white/10 text-xl text-white backdrop-blur-md transition hover:bg-white/16 disabled:cursor-not-allowed disabled:opacity-35 sm:right-0 sm:h-11 sm:w-11"
         aria-label="Next testimonial"
         data-embla-next
       >
@@ -181,12 +181,19 @@ const stars = Array.from({ length: 5 })
 <script>
   import EmblaCarousel from "embla-carousel"
 
+  const cleanupMap = new WeakMap<HTMLElement, () => void>()
+
   const initTestimonialsCarousel = () => {
     const carousels = document.querySelectorAll("[data-testimonials-carousel]")
 
     carousels.forEach((root) => {
-      if (!(root instanceof HTMLElement) || root.dataset.emblaReady === "true") {
+      if (!(root instanceof HTMLElement)) {
         return
+      }
+
+      const existingCleanup = cleanupMap.get(root)
+      if (typeof existingCleanup === "function") {
+        existingCleanup()
       }
 
       const viewport = root.querySelector("[data-embla-viewport]")
@@ -198,12 +205,17 @@ const stars = Array.from({ length: 5 })
         return
       }
 
-      root.dataset.emblaReady = "true"
-
       const embla = EmblaCarousel(viewport, {
         align: "start",
         loop: true,
       })
+      let autoplayId = window.setInterval(() => embla.scrollNext(), 4500)
+      const disposers: Array<() => void> = []
+
+      const restartAutoplay = () => {
+        window.clearInterval(autoplayId)
+        autoplayId = window.setInterval(() => embla.scrollNext(), 4500)
+      }
 
       const updateButtons = () => {
         if (prevButton instanceof HTMLButtonElement) {
@@ -233,11 +245,21 @@ const stars = Array.from({ length: 5 })
       }
 
       if (prevButton instanceof HTMLButtonElement) {
-        prevButton.addEventListener("click", () => embla.scrollPrev())
+        const onPrevClick = () => {
+          embla.scrollPrev()
+          restartAutoplay()
+        }
+        prevButton.addEventListener("click", onPrevClick)
+        disposers.push(() => prevButton.removeEventListener("click", onPrevClick))
       }
 
       if (nextButton instanceof HTMLButtonElement) {
-        nextButton.addEventListener("click", () => embla.scrollNext())
+        const onNextClick = () => {
+          embla.scrollNext()
+          restartAutoplay()
+        }
+        nextButton.addEventListener("click", onNextClick)
+        disposers.push(() => nextButton.removeEventListener("click", onNextClick))
       }
 
       dotButtons.forEach((dot, index) => {
@@ -245,8 +267,41 @@ const stars = Array.from({ length: 5 })
           return
         }
 
-        dot.addEventListener("click", () => embla.scrollTo(index))
+        const onDotClick = () => {
+          embla.scrollTo(index)
+          restartAutoplay()
+        }
+
+        dot.addEventListener("click", onDotClick)
+        disposers.push(() => dot.removeEventListener("click", onDotClick))
       })
+
+      const onMouseEnter = () => window.clearInterval(autoplayId)
+      const onMouseLeave = () => restartAutoplay()
+      const onFocusIn = () => window.clearInterval(autoplayId)
+      const onFocusOut = () => restartAutoplay()
+      const onVisibilityChange = () => {
+        if (document.hidden) {
+          window.clearInterval(autoplayId)
+          return
+        }
+
+        restartAutoplay()
+      }
+
+      root.addEventListener("mouseenter", onMouseEnter)
+      root.addEventListener("mouseleave", onMouseLeave)
+      root.addEventListener("focusin", onFocusIn)
+      root.addEventListener("focusout", onFocusOut)
+      document.addEventListener("visibilitychange", onVisibilityChange)
+
+      disposers.push(() => root.removeEventListener("mouseenter", onMouseEnter))
+      disposers.push(() => root.removeEventListener("mouseleave", onMouseLeave))
+      disposers.push(() => root.removeEventListener("focusin", onFocusIn))
+      disposers.push(() => root.removeEventListener("focusout", onFocusOut))
+      disposers.push(() =>
+        document.removeEventListener("visibilitychange", onVisibilityChange)
+      )
 
       embla.on("init", updateButtons)
       embla.on("init", updateDots)
@@ -254,17 +309,34 @@ const stars = Array.from({ length: 5 })
       embla.on("reInit", updateDots)
       embla.on("select", updateButtons)
       embla.on("select", updateDots)
+      embla.on("pointerDown", () => window.clearInterval(autoplayId))
+      embla.on("settle", restartAutoplay)
 
       updateButtons()
       updateDots()
+
+      root.dataset.emblaReady = "true"
+      cleanupMap.set(root, () => {
+        window.clearInterval(autoplayId)
+        disposers.forEach((dispose) => dispose())
+        embla.destroy()
+        cleanupMap.delete(root)
+        delete root.dataset.emblaReady
+      })
     })
   }
 
+  const bootTestimonialsCarousel = () => {
+    window.requestAnimationFrame(initTestimonialsCarousel)
+  }
+
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initTestimonialsCarousel, {
+    document.addEventListener("DOMContentLoaded", bootTestimonialsCarousel, {
       once: true,
     })
   } else {
-    initTestimonialsCarousel()
+    bootTestimonialsCarousel()
   }
+
+  document.addEventListener("astro:page-load", bootTestimonialsCarousel)
 </script>

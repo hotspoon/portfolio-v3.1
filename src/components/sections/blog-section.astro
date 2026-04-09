@@ -6,26 +6,29 @@ import blogImage3 from "@/assets/img/blog-3.png"
 const blogCards = [
   {
     image: blogImage1,
-    category: "UI/ UX Design",
-    author: "Jayesh Patil",
-    date: "10 Nov, 2023",
-    title: "Design Unraveled: Behind the Scenes of UI/UX Magic",
+    category: "Certification",
+    author: "Udemy",
+    date: "April 2024",
+    title: "The Ultimate React Course",
+    href: "https://www.udemy.com/course/the-ultimate-react-course",
     frame: "border-[#7d4dff]",
   },
   {
     image: blogImage2,
-    category: "App Design",
-    author: "Jayesh Patil",
-    date: "09 Oct, 2023",
-    title: "Sugee: Loan Management System for Rural Sector.",
+    category: "Certification",
+    author: "Udemy",
+    date: "April 2024",
+    title: "The Complete JavaScript Course",
+    href: "https://www.udemy.com/course/the-complete-javascript-course",
     frame: "border-transparent",
   },
   {
     image: blogImage3,
-    category: "App Design",
-    author: "Jayesh Patil",
-    date: "13 Aug, 2023",
-    title: "Cinetrade: Innovative way to invest in Digital Media",
+    category: "Education",
+    author: "Politeknik Elektronika Negeri Surabaya",
+    date: "August 2016 - September 2020",
+    title: "Bachelor of Applied Science in Informatics Engineering, GPA 3.06/4.0",
+    href: "https://www.hamzahalfarisi.com/about/",
     frame: "border-transparent",
   },
 ]
@@ -40,17 +43,19 @@ const blogCards = [
         <h2
           class="text-[2.75rem] leading-[0.95] font-black tracking-[-0.075em] text-[#2f3b52] sm:text-[4.2rem]"
         >
-          From my
+          Learning &
           <br />
-          blog post
+          education
         </h2>
       </div>
 
       <a
-        href="#contact"
+        href="https://www.hamzahalfarisi.com/about/"
+        target="_blank"
+        rel="noreferrer"
         class="inline-flex min-h-[50px] min-w-[100px] items-center justify-center rounded-full bg-[#f58a3a] px-5 text-base font-bold text-white transition hover:brightness-105 sm:mt-4 sm:min-h-[54px] sm:min-w-[110px] sm:px-6 sm:text-lg"
       >
-        See All
+        View More
       </a>
     </div>
 
@@ -59,7 +64,10 @@ const blogCards = [
         blogCards.map((card) => (
           <article>
             <div class="relative">
-              <div
+              <a
+                href={card.href}
+                target="_blank"
+                rel="noreferrer"
                 class:list={[
                   "overflow-hidden rounded-[2rem] border-[3px] bg-white",
                   card.frame,
@@ -70,7 +78,7 @@ const blogCards = [
                   alt={card.title}
                   class="h-[280px] w-full object-cover object-center sm:h-[360px]"
                 />
-              </div>
+              </a>
 
               <div class="absolute right-0 bottom-[-8px] flex h-[4.5rem] w-[4.5rem] items-center justify-center rounded-full bg-[#1c2941] text-[2rem] text-white shadow-[0_16px_26px_rgba(13,21,39,0.32)] sm:right-[-2px] sm:bottom-[-12px] sm:h-[5.7rem] sm:w-[5.7rem] sm:text-[2.6rem]">
                 ↗

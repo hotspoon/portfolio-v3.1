@@ -1,15 +1,26 @@
 ---
 import portfolioImage from "@/assets/img/portfolio-img.png"
 
-const tags = [
-  "Landing Page",
-  "Product Design",
-  "Animation",
-  "Glassmorphism",
-  "Cards",
-]
+const tags = ["React", "Next.js", "Vue", "REST API", "gRPC"]
 
-const cards = Array.from({ length: 2 })
+const cards = [
+  {
+    title: "NDS Payment Engine",
+    href: "https://www.hamzahalfarisi.com/",
+  },
+  {
+    title: "M2U ID Web",
+    href: "https://www.hamzahalfarisi.com/",
+  },
+  {
+    title: "Portal Klinik",
+    href: "https://www.hamzahalfarisi.com/",
+  },
+  {
+    title: "GDCPay SSO Web Admin",
+    href: "https://www.hamzahalfarisi.com/",
+  },
+]
 ---
 
 <section id="project" class="bg-white px-4 py-12 sm:px-6 lg:px-8">
@@ -19,17 +30,19 @@ const cards = Array.from({ length: 2 })
     >
       <div>
         <p class="text-[1.05rem] font-semibold text-[#2f3b52]">
-          Lets have a look at
+          Selected work from
         </p>
         <h2
           class="mt-2 text-[2.85rem] leading-[0.95] font-black tracking-[-0.075em] text-[#2f3b52] sm:text-[4.3rem]"
         >
-          my <span class="text-[#f58a3a]">Portfolio</span>
+          my <span class="text-[#f58a3a]">Projects</span>
         </h2>
       </div>
 
       <a
-        href="#contact"
+        href="https://www.hamzahalfarisi.com/work/"
+        target="_blank"
+        rel="noreferrer"
         class="inline-flex min-h-[50px] min-w-[100px] items-center justify-center rounded-full bg-[#f58a3a] px-5 text-base font-bold text-white transition hover:brightness-105 sm:mt-4 sm:min-h-[56px] sm:min-w-[104px] sm:px-6 sm:text-lg"
       >
         See All
@@ -38,23 +51,28 @@ const cards = Array.from({ length: 2 })
 
     <div class="grid gap-5 lg:grid-cols-2">
       {
-        cards.map(() => (
-          <article class="group relative overflow-hidden rounded-[1.7rem] bg-[#eef1f5] shadow-[0_12px_28px_rgba(35,43,59,0.08)]">
+        cards.map((card) => (
+          <a
+            href={card.href}
+            target="_blank"
+            rel="noreferrer"
+            class="group relative overflow-hidden rounded-[1.7rem] bg-[#eef1f5] shadow-[0_12px_28px_rgba(35,43,59,0.08)]"
+          >
             <img
               src={portfolioImage.src}
-              alt="Portfolio preview"
+              alt={card.title}
               class="h-[190px] w-full object-cover object-center sm:h-[250px]"
             />
 
             <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[rgba(0,0,0,0.4)] to-transparent" />
             <div class="absolute bottom-3 left-4 text-[2.2rem] leading-none font-black tracking-[-0.07em] text-white sm:left-5 sm:text-[3.15rem]">
-              Lirante
+              {card.title}
             </div>
 
             <div class="absolute top-3 right-3 flex h-12 w-12 items-center justify-center rounded-full border-2 border-[#f58a3a] bg-white/82 text-[1.7rem] text-[#f58a3a] backdrop-blur-sm transition group-hover:bg-white sm:top-4 sm:right-4 sm:h-14 sm:w-14 sm:text-[2rem]">
               ↗
             </div>
-          </article>
+          </a>
         ))
       }
     </div>
@@ -81,10 +99,12 @@ const cards = Array.from({ length: 2 })
         <h3
           class="text-[2.2rem] leading-none font-black tracking-[-0.07em] text-[#2f3b52] sm:text-[3.2rem]"
         >
-          Lirante - Food Dilvery Solution
+          Frontend projects built with modern web tools
         </h3>
         <a
-          href="#contact"
+          href="https://www.hamzahalfarisi.com/"
+          target="_blank"
+          rel="noreferrer"
           class="flex h-[3.25rem] w-[3.25rem] items-center justify-center rounded-full bg-[#f58a3a] text-[1.6rem] text-white transition hover:brightness-105 sm:h-[3.75rem] sm:w-[3.75rem] sm:text-[1.9rem]"
         >
           ↗
@@ -94,9 +114,9 @@ const cards = Array.from({ length: 2 })
       <p
         class="mx-auto mt-5 max-w-[760px] text-base leading-[1.45] text-[#6f7c90] sm:text-[1.05rem]"
       >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed congue
-        interdum ligula a dignissim. Lorem ipsum dolor sit amet, consectetur
-        adipiscing elit. Sed lobortis orci elementum egestas lobortis.
+        Experience across banking, healthcare, and payment systems with work
+        ranging from transaction flows and multicurrency features to admin
+        portals, testing, and performance optimization.
       </p>
     </div>
   </div>
