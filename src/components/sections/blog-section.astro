@@ -1,115 +1,181 @@
 ---
-import blogImage1 from "@/assets/img/blog-1.png"
-import blogImage2 from "@/assets/img/blog-2.png"
-import blogImage3 from "@/assets/img/blog-3.png"
-
-const blogCards = [
+const learningCards = [
   {
-    image: blogImage1,
-    category: "Certification",
-    author: "Udemy",
-    date: "April 2024",
-    title: "The Ultimate React Course",
+    kind: "Education",
+    eyebrow: "2016 - 2020",
+    title: "Bachelor of Applied Science in Informatics Engineering",
+    source: "Politeknik Elektronika Negeri Surabaya",
+    detail:
+      "Surabaya, East Java, Indonesia. GPA 3.06/4.0 with a final project on tobacco leaf disease detection using React Native and Python.",
+    href: "#",
+    tone: "light",
+  },
+  {
+    kind: "Certification",
+    eyebrow: "Udemy • April 2024",
+    title: "The Ultimate React Course 2024: React, Redux & More",
+    source: "Structured React learning",
+    detail:
+      "Focused on practical React patterns, state management, and modern frontend development workflows.",
     href: "https://www.udemy.com/course/the-ultimate-react-course",
-    frame: "border-[#7d4dff]",
+    tone: "dark",
   },
   {
-    image: blogImage2,
-    category: "Certification",
-    author: "Udemy",
-    date: "April 2024",
-    title: "The Complete JavaScript Course",
+    kind: "Certification",
+    eyebrow: "Udemy • April 2024",
+    title: "The Complete JavaScript Course 2024: From Zero to Expert!",
+    source: "Deep JavaScript foundation",
+    detail:
+      "Strengthened core JavaScript concepts, problem solving, and language fundamentals used across daily frontend work.",
     href: "https://www.udemy.com/course/the-complete-javascript-course",
-    frame: "border-transparent",
+    tone: "orange",
   },
-  {
-    image: blogImage3,
-    category: "Education",
-    author: "Politeknik Elektronika Negeri Surabaya",
-    date: "August 2016 - September 2020",
-    title: "Bachelor of Applied Science in Informatics Engineering, GPA 3.06/4.0",
-    href: "https://www.hamzahalfarisi.com/about/",
-    frame: "border-transparent",
-  },
+]
+
+const skillGroups = [
+  "Testing: Jest, React Testing Library",
+  "State Management: Redux, Zod, React Context, Vuex",
+  "Build Tools: CI/CD, Webpack, Vite, Turbopack, npm, yarn",
+  "UI Libraries: Material UI, Radix UI, TailwindCSS, SASS, Bootstrap",
+  "Languages & Frameworks: TypeScript, Node.js, Express, Flask, Django, Vue",
+  "Database: MySQL",
+  "Design Tools: Figma",
+  "Methodologies: Agile, Scrum",
+  "Other: Problem Solving, Teamwork, Responsive Design, Cross Browser Compatibility, Web Accessibility",
 ]
 ---
 
 <section class="bg-white px-4 py-12 sm:px-6 lg:px-8 xl:px-10">
   <div class="mx-auto max-w-[1240px]">
     <div
-      class="mb-8 flex flex-col gap-5 sm:mb-10 sm:flex-row sm:items-start sm:justify-between sm:gap-6"
+      class="mb-8 flex flex-col gap-4 sm:mb-10 lg:mb-12 lg:max-w-[760px]"
+      data-reveal
     >
-      <div>
-        <h2
-          class="text-[2.2rem] leading-[0.98] font-black tracking-[-0.075em] text-[#2f3b52] sm:text-[3rem] lg:text-[3.5rem] xl:text-[4.2rem]"
-          data-reveal
-        >
-          Learning &
-          <br />
-          education
-        </h2>
-      </div>
-
-      <a
-        href="https://www.hamzahalfarisi.com/about/"
-        target="_blank"
-        rel="noreferrer"
-        class="inline-flex min-h-[50px] min-w-[100px] items-center justify-center rounded-full bg-[#f58a3a] px-5 text-base font-bold text-white transition hover:brightness-105 sm:mt-4 sm:min-h-[54px] sm:min-w-[110px] sm:px-6 sm:text-lg"
-        data-reveal="scale"
-      >
-        View More
-      </a>
+      <span class="inline-flex w-fit rounded-full border border-[#dfe6ef] bg-[#f7f9fc] px-4 py-2 text-sm font-semibold tracking-[0.08em] text-[#667085] uppercase">
+        Learning Journey
+      </span>
+      <h2 class="text-[2.2rem] leading-[0.98] font-black tracking-[-0.075em] text-[#2f3b52] sm:text-[3rem] lg:text-[3.5rem] xl:text-[4.2rem]">
+        Education and
+        <br />
+        certifications
+      </h2>
+      <p class="max-w-[680px] text-sm leading-7 text-[#667085] sm:text-base sm:leading-8 xl:text-[1.05rem]">
+        Academic background and focused certifications that support my work in
+        modern frontend development.
+      </p>
     </div>
 
-    <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+    <div class="grid gap-6 lg:grid-cols-3">
       {
-        blogCards.map((card) => (
-          <article data-reveal>
-            <div class="relative">
-              <a
-                href={card.href}
-                target="_blank"
-                rel="noreferrer"
-                class:list={[
-                  "hover-lift overflow-hidden rounded-[1.5rem] border-[3px] bg-white sm:rounded-[2rem]",
-                  card.frame,
-                ]}
-              >
-                <img
-                  src={card.image.src}
-                  alt={card.title}
-                  class="h-[240px] w-full object-cover object-center transition duration-700 hover:scale-[1.04] sm:h-[300px] xl:h-[360px]"
-                />
-              </a>
-
-              <div class="absolute right-0 bottom-[-8px] flex h-[4rem] w-[4rem] items-center justify-center rounded-full bg-[#1c2941] text-[1.7rem] text-white shadow-[0_16px_26px_rgba(13,21,39,0.32)] sm:right-[-2px] sm:bottom-[-12px] sm:h-[5rem] sm:w-[5rem] sm:text-[2.2rem] xl:h-[5.7rem] xl:w-[5.7rem] xl:text-[2.6rem]">
-                ↗
-              </div>
-            </div>
-
-            <div class="mt-6 sm:mt-8">
-              <span class="inline-flex rounded-full bg-[#f1f4f8] px-5 py-2.5 text-sm font-medium text-[#3d475a] sm:px-7 sm:py-3 sm:text-[1.02rem]">
-                {card.category}
-              </span>
-
-              <div class="mt-6 flex flex-wrap items-center gap-4 text-sm text-[#6d7890] sm:mt-8 sm:text-[1.05rem]">
-                <span class="inline-flex items-center gap-2">
-                  <span class="text-[#f58a3a]">•</span>
-                  <span>{card.author}</span>
+        learningCards.map((card) => (
+          <article
+            class:list={[
+              "hover-lift flex h-full flex-col rounded-[1.8rem] border p-5 shadow-[0_18px_42px_rgba(28,41,65,0.06)] sm:p-6 xl:p-7",
+              card.tone === "light" &&
+                "border-[#e7ecf3] bg-[linear-gradient(180deg,#fbfcfe_0%,#f4f7fb_100%)] text-[#243244]",
+              card.tone === "dark" &&
+                "border-[#243244] bg-[#243244] text-white",
+              card.tone === "orange" &&
+                "border-[#ffd6b5] bg-[linear-gradient(180deg,#fff7ef_0%,#fff1e6_100%)] text-[#243244]",
+            ]}
+            data-reveal
+          >
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <span
+                  class:list={[
+                    "inline-flex rounded-full px-3 py-1 text-sm font-semibold",
+                    card.tone === "dark"
+                      ? "bg-white/10 text-[#f8c89d]"
+                      : "bg-white text-[#c96b1d] shadow-[0_8px_18px_rgba(28,41,65,0.06)]",
+                  ]}
+                >
+                  {card.kind}
                 </span>
-                <span class="inline-flex items-center gap-2">
-                  <span class="text-[#f58a3a]">•</span>
-                  <span>{card.date}</span>
-                </span>
+                <p
+                  class:list={[
+                    "mt-4 text-sm font-medium",
+                    card.tone === "dark" ? "text-white/68" : "text-[#7b8799]",
+                  ]}
+                >
+                  {card.eyebrow}
+                </p>
               </div>
 
-              <h3 class="mt-5 text-[1.45rem] leading-[1.2] font-medium tracking-[-0.05em] text-[#3a4459] sm:mt-6 sm:text-[1.8rem] xl:text-[2.15rem]">
-                {card.title}
-              </h3>
+              {card.href !== "#" && (
+                <a
+                  href={card.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  class:list={[
+                    "inline-flex h-11 w-11 items-center justify-center rounded-full text-lg transition",
+                    card.tone === "dark"
+                      ? "bg-white/10 text-white hover:bg-white/16"
+                      : "bg-[#243244] text-white hover:brightness-110",
+                  ]}
+                  aria-label={`Open ${card.title}`}
+                >
+                  ↗
+                </a>
+              )}
             </div>
+
+            <h3 class="mt-6 text-[1.4rem] leading-[1.15] font-black tracking-[-0.05em] sm:text-[1.75rem]">
+              {card.title}
+            </h3>
+
+            <p
+              class:list={[
+                "mt-4 text-base font-semibold",
+                card.tone === "dark" ? "text-white/88" : "text-[#3c485a]",
+              ]}
+            >
+              {card.source}
+            </p>
+
+            <p
+              class:list={[
+                "mt-4 text-sm leading-7 sm:text-base sm:leading-8",
+                card.tone === "dark" ? "text-white/72" : "text-[#667085]",
+              ]}
+            >
+              {card.detail}
+            </p>
           </article>
         ))
       }
+    </div>
+
+    <div
+      class="mt-8 rounded-[2rem] border border-[#e8edf4] bg-[#f8fafc] p-5 shadow-[0_18px_48px_rgba(28,41,65,0.05)] sm:mt-10 sm:p-7 xl:p-8"
+      data-reveal
+    >
+      <div class="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
+        <div>
+          <p class="text-sm font-semibold tracking-[0.08em] text-[#f58a3a] uppercase">
+            Supporting Skills
+          </p>
+          <h3 class="mt-2 text-[1.45rem] leading-tight font-black tracking-[-0.05em] text-[#243244] sm:text-[1.9rem]">
+            Foundation beyond daily coding
+          </h3>
+        </div>
+        <span class="text-sm font-medium text-[#7b8799]">
+          Tools, testing, workflow, and delivery
+        </span>
+      </div>
+
+      <div class="mt-6 flex flex-wrap gap-3">
+        {
+          skillGroups.map((skill) => (
+            <div
+              class="rounded-full bg-white px-4 py-3 text-sm leading-6 text-[#475467] shadow-[0_10px_22px_rgba(35,43,59,0.04)] sm:text-[0.96rem]"
+              data-reveal="scale"
+            >
+              {skill}
+            </div>
+          ))
+        }
+      </div>
     </div>
   </div>
 </section>

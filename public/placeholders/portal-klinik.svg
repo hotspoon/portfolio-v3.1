@@ -1,0 +1,30 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="720" rx="40" fill="url(#bg)"/>
+  <circle cx="110" cy="106" r="150" fill="#F39A52" fill-opacity="0.12"/>
+  <circle cx="1060" cy="580" r="160" fill="#243244" fill-opacity="0.08"/>
+  <rect x="92" y="84" width="1016" height="552" rx="34" fill="#FFFFFF" fill-opacity="0.9" stroke="#FADCC6"/>
+  <rect x="128" y="120" width="101" height="468" rx="28" fill="#243244"/>
+  <rect x="278" y="120" width="790" height="104" rx="28" fill="#FFF4EA"/>
+  <text x="318" y="170" fill="#243244" font-family="Arial, sans-serif" font-size="34" font-weight="700">Portal Klinik</text>
+  <text x="318" y="204" fill="#7B8799" font-family="Arial, sans-serif" font-size="20">Employee, inventory, and doctor scheduling</text>
+  <rect x="278" y="258" width="252" height="160" rx="28" fill="#F8FAFC"/>
+  <path d="M378 298H430V338H470V390H430V430H378V390H338V338H378V298Z" fill="#F39A52"/>
+  <rect x="566" y="258" width="230" height="160" rx="28" fill="#243244"/>
+  <rect x="598" y="294" width="112" height="16" rx="8" fill="#FFFFFF"/>
+  <rect x="598" y="332" width="164" height="12" rx="6" fill="#B9C2D0"/>
+  <rect x="598" y="360" width="136" height="12" rx="6" fill="#B9C2D0"/>
+  <rect x="832" y="258" width="236" height="160" rx="28" fill="#FFF4EA"/>
+  <rect x="864" y="292" width="144" height="16" rx="8" fill="#243244"/>
+  <rect x="864" y="332" width="156" height="12" rx="6" fill="#9AA5B5"/>
+  <rect x="864" y="364" width="112" height="12" rx="6" fill="#9AA5B5"/>
+  <rect x="278" y="452" width="790" height="136" rx="28" fill="#F8FAFC"/>
+  <rect x="312" y="486" width="212" height="16" rx="8" fill="#243244"/>
+  <rect x="312" y="522" width="708" height="12" rx="6" fill="#A7B1C2"/>
+  <rect x="312" y="550" width="548" height="12" rx="6" fill="#A7B1C2"/>
+  <defs>
+    <linearGradient id="bg" x1="54" y1="36" x2="1128" y2="690" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF9F4"/>
+      <stop offset="1" stop-color="#FFF1E7"/>
+    </linearGradient>
+  </defs>
+</svg>

@@ -2,8 +2,18 @@
 import aboutImage from "@/assets/img/about-section-img.png"
 
 const stats = [
-  { value: "5+ Years", label: "Frontend Experience" },
-  { value: "High Volume", label: "Financial Systems" },
+  {
+    value: "5+ Years",
+    label: "Frontend Experience",
+    valueClass:
+      "text-[2.2rem] leading-[0.95] sm:text-[2.75rem] xl:text-[3rem]",
+  },
+  {
+    value: "Banking & Payments",
+    label: "Domain Focus",
+    valueClass:
+      "max-w-[10ch] text-[1.9rem] leading-[0.95] sm:text-[2.2rem] xl:text-[2.45rem]",
+  },
 ]
 ---
 
@@ -44,9 +54,9 @@ const stats = [
       >
         Frontend Developer based in Jakarta, Indonesia with 5+ years of
         experience building scalable and high-performance web applications. I
-        work across React, Next.js, Vue, and enterprise frontend systems with a
-        strong focus on reusable components, maintainability, and reliable
-        product delivery.
+        bring together product thinking, reliable implementation, and strong
+        engineering practices across React, Next.js, Vue, testing, API
+        integration, and maintainable component systems.
       </p>
 
       <div
@@ -55,13 +65,16 @@ const stats = [
         {
           stats.map((stat) => (
             <div
-              class="hover-lift rounded-[1.2rem] bg-white/70 p-4 shadow-[0_10px_25px_rgba(35,43,59,0.05)]"
+              class="hover-lift flex min-h-[170px] flex-col justify-between rounded-[1.2rem] bg-white/70 p-5 shadow-[0_10px_25px_rgba(35,43,59,0.05)] sm:min-h-[190px] sm:p-6"
               data-reveal="scale"
             >
-              <div class="text-[2.35rem] leading-none font-black tracking-[-0.06em] text-[#2f3b52] sm:text-[3.15rem]">
+              <div class:list={[
+                "text-left font-black tracking-[-0.06em] text-[#2f3b52]",
+                stat.valueClass,
+              ]}>
                 {stat.value}
               </div>
-              <p class="mt-2 text-sm font-medium text-[#7d879c] sm:mt-3 sm:text-[1rem]">
+              <p class="mt-4 text-left text-sm font-medium text-[#7d879c] sm:text-[1rem]">
                 {stat.label}
               </p>
             </div>

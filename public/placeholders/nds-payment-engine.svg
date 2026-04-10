@@ -1,0 +1,37 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="720" rx="40" fill="url(#bg)"/>
+  <circle cx="1020" cy="120" r="140" fill="#F39A52" fill-opacity="0.18"/>
+  <circle cx="170" cy="600" r="180" fill="#FFFFFF" fill-opacity="0.08"/>
+  <rect x="86" y="88" width="1028" height="544" rx="28" fill="#1D2A42" fill-opacity="0.88" stroke="#45536C"/>
+  <rect x="126" y="128" width="352" height="180" rx="24" fill="#243244"/>
+  <text x="158" y="186" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="30" font-weight="700">NDS Payment Engine</text>
+  <text x="158" y="228" fill="#AEB8C8" font-family="Arial, sans-serif" font-size="20">National-scale payment flows</text>
+  <rect x="158" y="260" width="120" height="16" rx="8" fill="#F39A52"/>
+  <rect x="506" y="128" width="568" height="56" rx="18" fill="#31415D"/>
+  <rect x="538" y="148" width="158" height="16" rx="8" fill="#EEF2F8"/>
+  <rect x="738" y="148" width="120" height="16" rx="8" fill="#A7B1C2"/>
+  <rect x="892" y="144" width="150" height="24" rx="12" fill="#F39A52"/>
+  <rect x="506" y="214" width="268" height="172" rx="24" fill="#FFF4EA"/>
+  <rect x="536" y="244" width="140" height="16" rx="8" fill="#243244"/>
+  <rect x="536" y="276" width="206" height="12" rx="6" fill="#9AA5B5"/>
+  <rect x="536" y="324" width="208" height="32" rx="16" fill="#F39A52"/>
+  <rect x="804" y="214" width="270" height="172" rx="24" fill="#2B3A53"/>
+  <rect x="838" y="248" width="144" height="14" rx="7" fill="#EFF2F6"/>
+  <rect x="838" y="282" width="120" height="12" rx="6" fill="#8D98AA"/>
+  <rect x="838" y="316" width="174" height="12" rx="6" fill="#8D98AA"/>
+  <rect x="126" y="346" width="948" height="246" rx="24" fill="#202D46"/>
+  <rect x="158" y="384" width="412" height="18" rx="9" fill="#EAEFF5"/>
+  <rect x="158" y="424" width="352" height="12" rx="6" fill="#8893A5"/>
+  <rect x="158" y="456" width="320" height="12" rx="6" fill="#8893A5"/>
+  <rect x="158" y="508" width="220" height="42" rx="21" fill="#F39A52"/>
+  <path d="M702 490C755.333 430.667 808.667 430.667 862 490C915.333 549.333 968.667 549.333 1022 490" stroke="#F39A52" stroke-width="16" stroke-linecap="round"/>
+  <circle cx="702" cy="490" r="14" fill="#F39A52"/>
+  <circle cx="862" cy="490" r="14" fill="#F39A52"/>
+  <circle cx="1022" cy="490" r="14" fill="#F39A52"/>
+  <defs>
+    <linearGradient id="bg" x1="46" y1="34" x2="1128" y2="700" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#243244"/>
+      <stop offset="1" stop-color="#334A68"/>
+    </linearGradient>
+  </defs>
+</svg>

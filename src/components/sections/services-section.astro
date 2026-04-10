@@ -6,19 +6,22 @@ import serviceThree from "@/assets/img/service-3.png"
 
 const serviceCards = [
   {
-    title: "Enterprise Frontend",
+    title: "Reliable Product Delivery",
     featured: false,
     image: serviceOne,
+    desc: "Reusable components, API integration, and delivery habits that help teams ship safely.",
   },
   {
-    title: "React & Next.js Apps",
+    title: "Performance-Focused Frontend",
     featured: true,
     image: serviceTwo,
+    desc: "From code splitting to load-time improvements, I care about real user performance and stability.",
   },
   {
-    title: "Testing & Integration",
+    title: "Testing, Quality, and Scale",
     featured: false,
     image: serviceThree,
+    desc: "Unit testing, validation, and maintainable architecture for business-critical systems.",
   },
 ]
 ---
@@ -47,9 +50,9 @@ const serviceCards = [
         class="max-w-[30rem] pt-1 text-sm leading-[1.45] text-white/82 lg:ml-auto lg:text-left lg:text-[15px]"
         data-reveal
       >
-        I build scalable frontend systems for banking, healthcare, and payment
-        platforms with strong attention to component reuse, API integration,
-        performance, and testing quality.
+        Beyond writing UI, I focus on the engineering habits that make modern
+        frontend teams effective: clean architecture, performance, testing,
+        integration quality, and dependable delivery.
       </p>
     </div>
 
@@ -69,6 +72,9 @@ const serviceCards = [
               <div class="text-[1.02rem] font-semibold text-white sm:text-[1.1rem]">
                 {card.title}
               </div>
+              <p class="mt-3 max-w-[18rem] text-sm leading-6 text-white/70 sm:text-[0.96rem]">
+                {card.desc}
+              </p>
               {card.featured && (
                 <div class="mt-2 h-[4px] w-[7.5rem] rounded-full bg-[#8d5cff] sm:w-[9.5rem]" />
               )}

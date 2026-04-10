@@ -1,25 +1,80 @@
 ---
-import portfolioImage from "@/assets/img/portfolio-img.png"
-
-const tags = ["React", "Next.js", "Vue", "REST API", "gRPC"]
-
-const cards = [
+const caseStudies = [
   {
+    company: "PT Bank Rakyat Indonesia Tbk",
     title: "NDS Payment Engine",
-    href: "https://www.hamzahalfarisi.com/",
+    image: "/placeholders/nds-payment-engine.svg",
+    role: "Frontend Developer",
+    period: "2025 - Present",
+    challenge:
+      "Built frontend flows for national-scale payment services where reliability and release quality mattered.",
+    impact:
+      "Implemented inquiry, validation, and transaction confirmation flows while reducing duplication through reusable UI and integration adapters.",
+    stack: ["Vue", "Quasar", "Vuex", "gRPC", "REST API"],
+    tone: "dark",
   },
   {
-    title: "M2U ID Web",
-    href: "https://www.hamzahalfarisi.com/",
+    company: "PT Bank Maybank Indonesia Tbk",
+    title: "M2U ID Web Multicurrency",
+    image: "/placeholders/m2u-multicurrency.svg",
+    role: "Frontend Developer",
+    period: "2025",
+    challenge:
+      "Delivered a multicurrency capability for a digital banking web app used by individual customers.",
+    impact:
+      "Helped extend core banking functionality in a customer-facing product using a modern React stack and predictable state management.",
+    stack: ["React", "Redux", "Material UI"],
+    tone: "light",
   },
   {
+    company: "PT Telkom Indonesia",
     title: "Portal Klinik",
-    href: "https://www.hamzahalfarisi.com/",
+    image: "/placeholders/portal-klinik.svg",
+    role: "Frontend Developer",
+    period: "2024",
+    challenge:
+      "Built healthcare operations modules while improving quality, validation, and frontend performance.",
+    impact:
+      "Cut bugs by 80%, improved load time by 30%, and delivered a more reliable product through testing, validation, and performance optimization.",
+    stack: [
+      "Next.js",
+      "React",
+      "Redux",
+      "SWR",
+      "Zod",
+      "Jest",
+      "RTL",
+    ],
+    tone: "orange",
   },
   {
+    company: "PT GDC Multi Sarana",
     title: "GDCPay SSO Web Admin",
-    href: "https://www.hamzahalfarisi.com/",
+    image: "/placeholders/gdcpay-sso-admin.svg",
+    role: "Frontend Developer / Fullstack Contributor",
+    period: "2020 - 2024",
+    challenge:
+      "Worked on admin and payment products covering reconciliation, merchant operations, and internal business workflows.",
+    impact:
+      "Automated work equivalent to 50 hours per month, improved loading time by 15%, and supported secure backend services plus partner integrations.",
+    stack: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Flask",
+      "Django",
+      "Node.js",
+      "MySQL",
+    ],
+    tone: "light",
   },
+]
+
+const proofPoints = [
+  "Banking and payment domain experience",
+  "Performance and testing as core priorities",
+  "Reusable component and integration mindset",
+  "Comfortable across frontend and backend collaboration",
 ]
 ---
 
@@ -28,101 +83,164 @@ const cards = [
     <div
       class="mb-8 flex flex-col gap-5 sm:mb-10 sm:flex-row sm:items-start sm:justify-between sm:gap-6"
     >
-      <div>
-        <p class="text-base font-semibold text-[#2f3b52]">
-          Selected work from
-        </p>
+      <div class="max-w-[760px]">
+        <p class="text-base font-semibold text-[#2f3b52]">Selected case studies</p>
         <h2
           class="mt-2 text-[2.2rem] leading-[0.98] font-black tracking-[-0.075em] text-[#2f3b52] sm:text-[3rem] lg:text-[3.6rem] xl:text-[4.3rem]"
           data-reveal
         >
-          my <span class="text-[#f58a3a]">Projects</span>
+          Work that shipped
+          <span class="text-[#f58a3a]"> with impact</span>
         </h2>
+        <p
+          class="mt-4 max-w-[700px] text-sm leading-7 text-[#667085] sm:text-base sm:leading-8"
+          data-reveal
+        >
+          These are not just mock projects. They represent real product work in
+          banking, healthcare, and payment systems where reliability,
+          performance, and business impact were part of the job.
+        </p>
       </div>
 
       <a
-        href="https://www.hamzahalfarisi.com/work/"
-        target="_blank"
-        rel="noreferrer"
-        class="inline-flex min-h-[50px] min-w-[100px] items-center justify-center rounded-full bg-[#f58a3a] px-5 text-base font-bold text-white transition hover:brightness-105 sm:mt-4 sm:min-h-[56px] sm:min-w-[104px] sm:px-6 sm:text-lg"
+        href="#contact"
+        class="inline-flex min-h-[50px] min-w-[120px] items-center justify-center rounded-full bg-[#f58a3a] px-5 text-base font-bold text-white transition hover:brightness-105 sm:mt-4 sm:min-h-[56px] sm:px-6 sm:text-lg"
         data-reveal="scale"
       >
-        See All
+        Let&apos;s Talk
       </a>
     </div>
 
-    <div class="grid gap-5 md:grid-cols-2">
+    <div class="grid gap-5 lg:grid-cols-2">
       {
-        cards.map((card) => (
-          <a
-            href={card.href}
-            target="_blank"
-            rel="noreferrer"
-            class="group hover-lift relative overflow-hidden rounded-[1.4rem] bg-[#eef1f5] shadow-[0_12px_28px_rgba(35,43,59,0.08)] sm:rounded-[1.7rem]"
+        caseStudies.map((item) => (
+          <article
+            class:list={[
+              "hover-lift flex h-full flex-col rounded-[1.6rem] border p-5 shadow-[0_18px_42px_rgba(28,41,65,0.06)] sm:rounded-[1.9rem] sm:p-6 xl:p-7",
+              item.tone === "dark" &&
+                "border-[#243244] bg-[#243244] text-white",
+              item.tone === "orange" &&
+                "border-[#ffd8ba] bg-[linear-gradient(180deg,#fff8f2_0%,#fff2e8_100%)] text-[#243244]",
+              item.tone === "light" &&
+                "border-[#e7ecf3] bg-[linear-gradient(180deg,#fbfcfe_0%,#f6f8fb_100%)] text-[#243244]",
+            ]}
             data-reveal
           >
-            <img
-              src={portfolioImage.src}
-              alt={card.title}
-              class="h-[210px] w-full object-cover object-center transition duration-700 group-hover:scale-[1.06] sm:h-[250px] xl:h-[280px]"
-            />
-
-            <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[rgba(0,0,0,0.4)] to-transparent" />
-            <div class="absolute right-16 bottom-3 left-4 text-[1.45rem] leading-none font-black tracking-[-0.05em] text-white sm:right-20 sm:left-5 sm:text-[2rem] xl:text-[2.7rem]">
-              {card.title}
+            <div class="mb-5 overflow-hidden rounded-[1.3rem] border border-black/5 bg-white/40">
+              <img
+                src={item.image}
+                alt={item.title}
+                class="h-[190px] w-full object-cover object-center sm:h-[220px]"
+                loading="lazy"
+              />
             </div>
 
-            <div class="absolute top-3 right-3 flex h-12 w-12 items-center justify-center rounded-full border-2 border-[#f58a3a] bg-white/82 text-[1.7rem] text-[#f58a3a] backdrop-blur-sm transition duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:bg-white sm:top-4 sm:right-4 sm:h-14 sm:w-14 sm:text-[2rem]">
-              ↗
+            <div class="flex flex-wrap items-center gap-3 text-sm">
+              <span
+                class:list={[
+                  "rounded-full px-3 py-1 font-semibold",
+                  item.tone === "dark"
+                    ? "bg-white/10 text-[#f8c89d]"
+                    : "bg-white text-[#c96b1d] shadow-[0_8px_18px_rgba(28,41,65,0.06)]",
+                ]}
+              >
+                {item.role}
+              </span>
+              <span class:list={[item.tone === "dark" ? "text-white/65" : "text-[#7b8799]"]}>
+                {item.company}
+              </span>
+              <span class:list={[item.tone === "dark" ? "text-white/65" : "text-[#7b8799]"]}>
+                {item.period}
+              </span>
             </div>
-          </a>
+
+            <h3 class="mt-5 text-[1.5rem] leading-[1.08] font-black tracking-[-0.055em] sm:text-[2rem]">
+              {item.title}
+            </h3>
+
+            <div class="mt-6 space-y-4">
+              <div>
+                <p
+                  class:list={[
+                    "text-xs font-semibold tracking-[0.08em] uppercase",
+                    item.tone === "dark" ? "text-[#f8c89d]" : "text-[#f58a3a]",
+                  ]}
+                >
+                  Scope
+                </p>
+                <p class:list={["mt-2 text-sm leading-7 sm:text-base sm:leading-8", item.tone === "dark" ? "text-white/78" : "text-[#667085]"]}>
+                  {item.challenge}
+                </p>
+              </div>
+
+              <div>
+                <p
+                  class:list={[
+                    "text-xs font-semibold tracking-[0.08em] uppercase",
+                    item.tone === "dark" ? "text-[#f8c89d]" : "text-[#f58a3a]",
+                  ]}
+                >
+                  Impact
+                </p>
+                <p class:list={["mt-2 text-sm leading-7 sm:text-base sm:leading-8", item.tone === "dark" ? "text-white/88" : "text-[#475467]"]}>
+                  {item.impact}
+                </p>
+              </div>
+            </div>
+
+            <div class="mt-6 flex flex-wrap gap-2.5">
+              {
+                item.stack.map((tag) => (
+                  <span
+                    class:list={[
+                      "rounded-full px-3 py-2 text-sm font-medium",
+                      item.tone === "dark"
+                        ? "bg-white/10 text-white"
+                        : "bg-white text-[#475467] shadow-[0_8px_18px_rgba(28,41,65,0.05)]",
+                    ]}
+                  >
+                    {tag}
+                  </span>
+                ))
+              }
+            </div>
+          </article>
         ))
       }
     </div>
 
-    <div class="mt-8 flex items-center justify-center gap-2.5">
-      <span class="h-2.5 w-10 rounded-full bg-[#f58a3a] sm:h-3 sm:w-11"></span>
-      <span class="h-2.5 w-2.5 rounded-full bg-[#dfe4ea] sm:h-3 sm:w-3"></span>
-      <span class="h-2.5 w-2.5 rounded-full bg-[#dfe4ea] sm:h-3 sm:w-3"></span>
-      <span class="h-2.5 w-2.5 rounded-full bg-[#dfe4ea] sm:h-3 sm:w-3"></span>
-    </div>
-
-    <div class="mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
-      {
-        tags.map((tag) => (
-          <span class="inline-flex rounded-full bg-[#f2f5f9] px-4 py-2 text-sm font-medium text-[#404b60] transition duration-300 hover:-translate-y-0.5 hover:bg-[#e9eef6] sm:px-6 sm:py-2.5 sm:text-[1rem] xl:px-7 xl:py-3 xl:text-[1.05rem]" data-reveal="scale">
-            {tag}
-          </span>
-        ))
-      }
-    </div>
-
-    <div class="mt-8 text-center">
-      <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
-        <h3
-          class="text-[1.9rem] leading-[1.02] font-black tracking-[-0.07em] text-[#2f3b52] sm:text-[2.5rem] xl:text-[3.2rem]"
-          data-reveal
-        >
-          Frontend projects built with modern web tools
-        </h3>
-        <a
-          href="https://www.hamzahalfarisi.com/"
-          target="_blank"
-          rel="noreferrer"
-          class="flex h-[3.25rem] w-[3.25rem] items-center justify-center rounded-full bg-[#f58a3a] text-[1.6rem] text-white transition hover:brightness-105 sm:h-[3.75rem] sm:w-[3.75rem] sm:text-[1.9rem]"
-        >
-          ↗
-        </a>
+    <div
+      class="mt-10 rounded-[1.8rem] border border-[#e7ecf3] bg-[#f8fafc] p-5 shadow-[0_18px_42px_rgba(28,41,65,0.04)] sm:p-6 xl:p-7"
+      data-reveal
+    >
+      <div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+        <div>
+          <p class="text-sm font-semibold tracking-[0.08em] text-[#f58a3a] uppercase">
+            Why This Matters
+          </p>
+          <h3 class="mt-2 text-[1.45rem] leading-tight font-black tracking-[-0.05em] text-[#243244] sm:text-[1.9rem]">
+            The profile behind the projects
+          </h3>
+        </div>
+        <p class="max-w-[560px] text-sm leading-7 text-[#667085] sm:text-base sm:leading-8">
+          Recruiters and teams today usually look for more than UI delivery. The
+          strongest signal is being able to connect product goals, engineering
+          quality, and business outcomes.
+        </p>
       </div>
 
-      <p
-        class="mx-auto mt-5 max-w-[760px] text-base leading-[1.45] text-[#6f7c90] sm:text-[1.05rem]"
-        data-reveal
-      >
-        Experience across banking, healthcare, and payment systems with work
-        ranging from transaction flows and multicurrency features to admin
-        portals, testing, and performance optimization.
-      </p>
+      <div class="mt-6 flex flex-wrap gap-3">
+        {
+          proofPoints.map((point) => (
+            <span
+              class="rounded-full bg-white px-4 py-3 text-sm font-medium text-[#475467] shadow-[0_10px_22px_rgba(35,43,59,0.04)]"
+              data-reveal="scale"
+            >
+              {point}
+            </span>
+          ))
+        }
+      </div>
     </div>
   </div>
 </section>
