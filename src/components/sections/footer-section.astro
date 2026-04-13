@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets"
 import logo from "@/assets/img/jcrea-nav-logo-v2.png"
 
 const navigation = [
@@ -64,10 +65,14 @@ const socials = [
     >
       <div data-reveal>
         <div class="flex items-center gap-4">
-          <img
-            src={logo.src}
+          <Image
+            src={logo}
             alt="Hamzah logo"
             class="h-14 w-14 object-contain"
+            width={56}
+            sizes="56px"
+            loading="lazy"
+            decoding="async"
           />
           <span
             class="text-[1.8rem] font-black tracking-[-0.04em] text-white sm:text-[2.2rem]"

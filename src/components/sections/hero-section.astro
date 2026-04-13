@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets"
 import Navbar from "@/components/navbar.astro"
 import heroImage from "@/assets/img/my-image.png"
 import heroEllipse from "@/assets/img/Ellipse-2.png"
@@ -74,11 +75,15 @@ const stars = Array.from({ length: 5 })
           class="absolute bottom-0 z-0 w-[128%] max-w-[340px] sm:max-w-[460px] md:max-w-[580px] lg:max-w-[650px] xl:max-w-[720px]"
           data-reveal="scale"
         />
-        <img
-          src={heroImage.src}
+        <Image
+          src={heroImage}
           alt="Portrait illustration"
-          class="absolute bottom-0 md:-bottom-24 lg:-bottom-16 left-1/2 z-30 h-[108%] w-auto max-w-none -translate-x-1/2 object-contain drop-shadow-[0_18px_30px_rgba(77,43,12,0.18)] sm:h-[112%] md:h-[118%] xl:h-[110%]"
+          class="absolute bottom-0 left-1/2 z-30 w-[74%] max-w-[520px] -translate-x-1/2 object-contain drop-shadow-[0_18px_30px_rgba(77,43,12,0.18)] md:-bottom-24 lg:-bottom-16 sm:w-[70%] xl:w-[68%]"
           data-reveal="scale"
+          width={520}
+          sizes="(min-width: 1280px) 520px, (min-width: 1024px) 470px, (min-width: 768px) 420px, 74vw"
+          loading="eager"
+          decoding="async"
         />
 
         <div
