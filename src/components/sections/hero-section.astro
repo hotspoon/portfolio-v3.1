@@ -28,7 +28,7 @@ const stars = Array.from({ length: 5 })
         class="mt-4 text-[2.55rem] leading-[0.95] font-black tracking-[-0.075em] text-[#141414] sm:text-[3.35rem] md:text-[4.15rem] lg:text-[4.9rem] xl:text-[5.45rem] 2xl:text-[6.1rem]"
         data-reveal
       >
-        I'm <span class="text-[#f39a52]">Hamzah</span><br />
+        I'm <span class="text-[#b35a1a]">Hamzah</span><br />
         Front-End Developer
       </h1>
       <p
@@ -80,8 +80,10 @@ const stars = Array.from({ length: 5 })
           alt="Portrait illustration"
           class="absolute bottom-0 left-1/2 z-30 w-[74%] max-w-[520px] -translate-x-1/2 object-contain drop-shadow-[0_18px_30px_rgba(77,43,12,0.18)] md:-bottom-24 lg:-bottom-16 sm:w-[70%] xl:w-[68%]"
           data-reveal="scale"
-          width={520}
-          sizes="(min-width: 1280px) 520px, (min-width: 1024px) 470px, (min-width: 768px) 420px, 74vw"
+          widths={[320, 380, 440, 520]}
+          sizes="(min-width: 1280px) 430px, (min-width: 1024px) 390px, (min-width: 768px) 360px, 74vw"
+          format="avif"
+          quality={60}
           loading="eager"
           decoding="async"
           fetchpriority="high"
@@ -96,7 +98,7 @@ const stars = Array.from({ length: 5 })
           >
             <a
               href="#project"
-              class="rounded-full bg-[#f39a52] px-4 py-3 text-center text-base font-bold whitespace-nowrap text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.25)] transition hover:brightness-105 sm:px-6 sm:py-4 sm:text-lg xl:text-xl"
+              class="rounded-full bg-[#b85f1d] px-4 py-3 text-center text-base font-bold whitespace-nowrap text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.2)] transition hover:brightness-105 sm:px-6 sm:py-4 sm:text-lg xl:text-xl"
             >
               Portfolio ↗
             </a>
@@ -113,7 +115,7 @@ const stars = Array.from({ length: 5 })
       <aside class="order-3 flex justify-center xl:justify-end">
         <div class="text-center xl:mt-8 xl:text-right" data-reveal>
           <div
-            class="mb-3 flex justify-center gap-1 text-[#f39a52] xl:justify-end"
+            class="mb-3 flex justify-center gap-1 text-[#b85f1d] xl:justify-end"
           >
             {
               stars.map(() => (
