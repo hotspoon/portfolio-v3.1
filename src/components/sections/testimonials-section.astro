@@ -3,25 +3,28 @@ import textureBg from "@/assets/img/service-bg.png"
 
 const testimonials = [
   {
-    name: "Enterprise Delivery",
-    role: "Frontend Engineering Focus",
+    name: "Nasrulloh Muhyiddin",
+    role: "Backend Engineer • PT GDC Multi Sarana",
+    avatar: "NM",
     rating: 5,
     quote:
-      "Experienced in building frontend features for banking and payment systems, including transaction-heavy flows that require reliability, maintainability, and careful integration work.",
+      "Hamzah was consistently reliable when we worked together at PT GDC Multi Sarana. He was strong in turning product requirements into maintainable frontend implementation and collaborated smoothly with backend integration work.",
   },
   {
-    name: "Testing Mindset",
-    role: "Quality & Reliability",
+    name: "M Frizar",
+    role: "iOS Developer • PT Maybank Indonesia",
+    avatar: "MF",
     rating: 5,
     quote:
-      "Strong hands-on work with Jest and React Testing Library, with practical experience reducing bugs, improving validation quality, and making releases safer for product teams.",
+      "Working with Hamzah at Maybank was a great experience. He approached frontend development with strong ownership, clear communication, and a solid understanding of how to deliver dependable user-facing features in a product team.",
   },
   {
-    name: "Reusable Systems",
-    role: "Scalable Frontend Approach",
+    name: "Alvarizqi",
+    role: "Frontend Engineer • PT Bank Rakyat Indonesia",
+    avatar: "AR",
     rating: 5,
     quote:
-      "Focused on reusable UI components, API integration layers, and maintainable code structure across React, Next.js, Vue, and enterprise product environments.",
+      "Hamzah brings a thoughtful frontend mindset to the team. At BRI, I saw him handle implementation carefully, keep code structured, and stay focused on building flows that are both reliable and easier for the team to extend.",
   },
 ]
 
@@ -43,7 +46,7 @@ const stars = Array.from({ length: 5 })
       <h2
         class="text-[2.1rem] leading-[1.08] font-black tracking-[-0.07em] text-white sm:text-[2.8rem] lg:text-[3.35rem] xl:text-[4rem]"
       >
-        Testimonials That
+        People Who
         <span class="relative inline-block">
           <span
             class="absolute -top-3 -right-5 hidden text-[2.1rem] text-white sm:block"
@@ -59,15 +62,15 @@ const stars = Array.from({ length: 5 })
           >
         </span>
         <br />
-        Speak to <span class="text-[#f58a3a]">My Results</span>
+        Worked With <span class="text-[#f58a3a]">Me Directly</span>
       </h2>
 
       <p
         class="mx-auto mt-4 max-w-[760px] text-[0.95rem] leading-[1.55] text-white/78 sm:mt-5 sm:text-[1.05rem] sm:leading-[1.45]"
       >
-        A quick snapshot of the strengths highlighted throughout my frontend
-        experience, from enterprise product delivery and testing quality to
-        reusable architecture and performance-minded implementation.
+        Short notes from collaborators across banking and payment teams who
+        worked with me on product delivery, integration, and frontend
+        implementation.
       </p>
     </div>
 
@@ -102,6 +105,9 @@ const stars = Array.from({ length: 5 })
                   <div class="mb-5 flex items-start justify-between gap-4 pr-12 sm:mb-6 sm:gap-5">
                     <div class="flex items-center gap-3 sm:gap-4">
                       <div class="h-12 w-12 rounded-full bg-[radial-gradient(circle_at_35%_30%,#f8d1a1_0%,#8d664f_38%,#324b68_100%)] ring-2 ring-white/16 sm:h-14 sm:w-14">
+                        <div class="flex h-full w-full items-center justify-center text-sm font-black tracking-[0.06em] text-white sm:text-base">
+                          {testimonial.avatar}
+                        </div>
                       </div>
                       <div>
                         <div class="text-[1.15rem] leading-none font-bold tracking-[-0.05em] text-white sm:text-[1.55rem] xl:text-[2rem]">
