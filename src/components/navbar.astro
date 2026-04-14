@@ -13,56 +13,143 @@ const links = [
 ---
 
 <nav
-  class="flex w-full max-w-[1280px] flex-wrap items-center justify-center gap-2 rounded-[1.35rem] bg-[#151515] px-3 py-2 text-white shadow-[0_18px_45px_rgba(17,17,17,0.16)] sm:rounded-[1.7rem] sm:px-4 md:gap-3 lg:flex-nowrap lg:justify-between lg:px-5 xl:px-6"
+  class="w-full max-w-[1280px] rounded-[1.35rem] bg-[#151515] px-3 py-2 text-white shadow-[0_18px_45px_rgba(17,17,17,0.16)] sm:rounded-[1.7rem] sm:px-4 lg:px-5 xl:px-6"
 >
-  <div
-    class="flex flex-wrap items-center justify-center gap-2 md:justify-start"
-  >
-    {
-      links.slice(0, 3).map((link) => (
-        <a
-          href={link.href}
-          class:list={[
-            "rounded-full px-3 py-2 text-xs font-medium tracking-[0.01em] transition duration-200 hover:bg-white/10 sm:px-4 sm:text-sm xl:px-5 xl:py-2.5",
-            link.active &&
-              "bg-[#b85f1d] text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.22)]",
-          ]}
-        >
-          {link.label}
-        </a>
-      ))
-    }
+  <div class="flex items-center justify-between gap-3">
+    <a href="#home" class="flex items-center gap-2 rounded-full px-3 py-2">
+      <Image
+        src={logo}
+        alt="Hamzah logo"
+        class="h-8 w-8 object-contain sm:h-9 sm:w-9"
+        width={36}
+        sizes="36px"
+        loading="eager"
+        decoding="async"
+      />
+      <span
+        class="text-[1.15rem] font-extrabold tracking-[0.04em] sm:text-[1.35rem] xl:text-[1.7rem]"
+        >HAMZAH</span
+      >
+    </a>
+
+    <button
+      type="button"
+      class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/12 bg-white/6 text-white transition hover:bg-white/10 lg:hidden"
+      aria-label="Toggle navigation menu"
+      aria-expanded="false"
+      aria-controls="mobile-nav-menu"
+      data-mobile-nav-toggle
+    >
+      <span class="sr-only">Toggle navigation</span>
+      <span class="relative h-4 w-5">
+        <span class="absolute top-0 left-0 h-0.5 w-5 rounded-full bg-current transition-transform duration-200" data-mobile-nav-line="top"></span>
+        <span class="absolute top-[7px] left-0 h-0.5 w-5 rounded-full bg-current transition-opacity duration-200" data-mobile-nav-line="middle"></span>
+        <span class="absolute top-[14px] left-0 h-0.5 w-5 rounded-full bg-current transition-transform duration-200" data-mobile-nav-line="bottom"></span>
+      </span>
+    </button>
+
+    <div class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-between lg:gap-6">
+      <div class="flex flex-wrap items-center justify-center gap-2 xl:gap-3">
+        {
+          links.slice(0, 3).map((link) => (
+            <a
+              href={link.href}
+              class:list={[
+                "rounded-full px-3 py-2 text-xs font-medium tracking-[0.01em] transition duration-200 hover:bg-white/10 sm:px-4 sm:text-sm xl:px-5 xl:py-2.5",
+                link.active &&
+                  "bg-[#8f4714] text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.16)]",
+              ]}
+            >
+              {link.label}
+            </a>
+          ))
+        }
+      </div>
+
+      <div class="flex flex-wrap items-center justify-center gap-2 xl:gap-3">
+        {
+          links.slice(3).map((link) => (
+            <a
+              href={link.href}
+              class="rounded-full px-3 py-2 text-xs font-medium tracking-[0.01em] transition duration-200 hover:bg-white/10 sm:px-4 sm:text-sm xl:px-5 xl:py-2.5"
+            >
+              {link.label}
+            </a>
+          ))
+        }
+      </div>
+    </div>
   </div>
 
-  <a
-    href="#home"
-    class="order-first flex items-center gap-2 rounded-full px-3 py-2 md:order-none"
+  <div
+    id="mobile-nav-menu"
+    class="hidden border-t border-white/10 pt-3 pb-1 lg:hidden"
+    data-mobile-nav-menu
   >
-    <Image
-      src={logo}
-      alt="Hamzah logo"
-      class="h-8 w-8 object-contain sm:h-9 sm:w-9"
-      width={36}
-      sizes="36px"
-      loading="eager"
-      decoding="async"
-    />
-    <span
-      class="text-[1.15rem] font-extrabold tracking-[0.04em] sm:text-[1.35rem] xl:text-[1.7rem]"
-      >HAMZAH</span
-    >
-  </a>
-
-  <div class="flex flex-wrap items-center justify-center gap-2 md:justify-end">
-    {
-      links.slice(3).map((link) => (
-        <a
-          href={link.href}
-          class="rounded-full px-3 py-2 text-xs font-medium tracking-[0.01em] transition duration-200 hover:bg-white/10 sm:px-4 sm:text-sm xl:px-5 xl:py-2.5"
-        >
-          {link.label}
-        </a>
-      ))
-    }
+    <div class="grid gap-2">
+      {
+        links.map((link) => (
+          <a
+            href={link.href}
+            class:list={[
+              "rounded-[1rem] px-4 py-3 text-sm font-medium tracking-[0.01em] transition duration-200 hover:bg-white/10",
+              link.active && "bg-[#8f4714] text-white",
+            ]}
+            data-mobile-nav-link
+          >
+            {link.label}
+          </a>
+        ))
+      }
+    </div>
   </div>
 </nav>
+
+<script>
+  const initMobileNav = () => {
+    const navs = document.querySelectorAll("[data-mobile-nav-toggle]")
+
+    navs.forEach((toggle) => {
+      if (!(toggle instanceof HTMLButtonElement)) return
+
+      const nav = toggle.closest("nav")
+      const menu = nav?.querySelector("[data-mobile-nav-menu]")
+      const links = nav?.querySelectorAll("[data-mobile-nav-link]") ?? []
+      const top = toggle.querySelector('[data-mobile-nav-line="top"]')
+      const middle = toggle.querySelector('[data-mobile-nav-line="middle"]')
+      const bottom = toggle.querySelector('[data-mobile-nav-line="bottom"]')
+
+      if (!(menu instanceof HTMLElement)) return
+
+      const setOpen = (open: boolean) => {
+        toggle.setAttribute("aria-expanded", open ? "true" : "false")
+        menu.classList.toggle("hidden", !open)
+        top?.classList.toggle("translate-y-[7px]", open)
+        top?.classList.toggle("rotate-45", open)
+        middle?.classList.toggle("opacity-0", open)
+        bottom?.classList.toggle("-translate-y-[7px]", open)
+        bottom?.classList.toggle("-rotate-45", open)
+      }
+
+      if (toggle.dataset.mobileNavReady === "true") return
+      toggle.dataset.mobileNavReady = "true"
+
+      toggle.addEventListener("click", () => {
+        const isOpen = toggle.getAttribute("aria-expanded") === "true"
+        setOpen(!isOpen)
+      })
+
+      links.forEach((link) => {
+        link.addEventListener("click", () => setOpen(false))
+      })
+    })
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initMobileNav, { once: true })
+  } else {
+    initMobileNav()
+  }
+
+  document.addEventListener("astro:page-load", initMobileNav)
+</script>

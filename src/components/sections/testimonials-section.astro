@@ -170,21 +170,26 @@ const stars = Array.from({ length: 5 })
         →
       </button>
 
-      <div class="mt-6 flex items-center justify-center gap-2.5" data-embla-dots>
+      <div class="mt-6 flex items-center justify-center gap-1.5 sm:gap-2" data-embla-dots>
         {
           testimonials.map((_, index) => (
             <button
               type="button"
-              class:list={[
-                "h-2.5 rounded-full transition-all duration-300",
-                index === 0
-                  ? "w-8 bg-[#f58a3a]"
-                  : "w-2.5 bg-white/25 hover:bg-white/40",
-              ]}
+              class="flex h-11 w-11 items-center justify-center rounded-full transition-colors duration-300 hover:bg-white/8 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/70"
               aria-label={`Go to testimonial ${index + 1}`}
               aria-current={index === 0 ? "true" : "false"}
               data-embla-dot
             >
+              <span
+                class:list={[
+                  "block h-2.5 rounded-full transition-all duration-300",
+                  index === 0
+                    ? "w-8 bg-[#f58a3a]"
+                    : "w-2.5 bg-white/25 hover:bg-white/40",
+                ]}
+                data-embla-dot-indicator
+              >
+              </span>
             </button>
           ))
         }
@@ -250,12 +255,17 @@ const stars = Array.from({ length: 5 })
             return
           }
 
+          const indicator = dot.querySelector("[data-embla-dot-indicator]")
+          if (!(indicator instanceof HTMLElement)) {
+            return
+          }
+
           const isActive = index === selectedIndex
           dot.ariaCurrent = isActive ? "true" : "false"
-          dot.classList.toggle("w-8", isActive)
-          dot.classList.toggle("bg-[#f58a3a]", isActive)
-          dot.classList.toggle("w-2.5", !isActive)
-          dot.classList.toggle("bg-white/25", !isActive)
+          indicator.classList.toggle("w-8", isActive)
+          indicator.classList.toggle("bg-[#f58a3a]", isActive)
+          indicator.classList.toggle("w-2.5", !isActive)
+          indicator.classList.toggle("bg-white/25", !isActive)
         })
       }
 
