@@ -15,8 +15,28 @@ const links = [
 <nav
   class="w-full max-w-[1280px] rounded-[1.35rem] bg-[#151515] px-3 py-2 text-white shadow-[0_18px_45px_rgba(17,17,17,0.16)] sm:rounded-[1.7rem] sm:px-4 lg:px-5 xl:px-6"
 >
-  <div class="flex items-center justify-between gap-3">
-    <a href="#home" class="flex items-center gap-2 rounded-full px-3 py-2">
+  <div class="flex items-center justify-between gap-3 lg:grid lg:grid-cols-[1fr_auto_1fr] lg:gap-6">
+    <div class="hidden lg:flex lg:flex-wrap lg:items-center lg:justify-start lg:gap-2 xl:gap-3">
+      {
+        links.slice(0, 3).map((link) => (
+          <a
+            href={link.href}
+            class:list={[
+              "rounded-full px-3 py-2 text-xs font-medium tracking-[0.01em] transition duration-200 hover:bg-white/10 sm:px-4 sm:text-sm xl:px-5 xl:py-2.5",
+              link.active &&
+                "bg-[#8f4714] text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.16)]",
+            ]}
+          >
+            {link.label}
+          </a>
+        ))
+      }
+    </div>
+
+    <a
+      href="#home"
+      class="flex items-center gap-2 rounded-full px-3 py-2 lg:justify-self-center"
+    >
       <Image
         src={logo}
         alt="Hamzah logo"
@@ -48,36 +68,17 @@ const links = [
       </span>
     </button>
 
-    <div class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-between lg:gap-6">
-      <div class="flex flex-wrap items-center justify-center gap-2 xl:gap-3">
-        {
-          links.slice(0, 3).map((link) => (
-            <a
-              href={link.href}
-              class:list={[
-                "rounded-full px-3 py-2 text-xs font-medium tracking-[0.01em] transition duration-200 hover:bg-white/10 sm:px-4 sm:text-sm xl:px-5 xl:py-2.5",
-                link.active &&
-                  "bg-[#8f4714] text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.16)]",
-              ]}
-            >
-              {link.label}
-            </a>
-          ))
-        }
-      </div>
-
-      <div class="flex flex-wrap items-center justify-center gap-2 xl:gap-3">
-        {
-          links.slice(3).map((link) => (
-            <a
-              href={link.href}
-              class="rounded-full px-3 py-2 text-xs font-medium tracking-[0.01em] transition duration-200 hover:bg-white/10 sm:px-4 sm:text-sm xl:px-5 xl:py-2.5"
-            >
-              {link.label}
-            </a>
-          ))
-        }
-      </div>
+    <div class="hidden lg:flex lg:flex-wrap lg:items-center lg:justify-end lg:gap-2 xl:gap-3">
+      {
+        links.slice(3).map((link) => (
+          <a
+            href={link.href}
+            class="rounded-full px-3 py-2 text-xs font-medium tracking-[0.01em] transition duration-200 hover:bg-white/10 sm:px-4 sm:text-sm xl:px-5 xl:py-2.5"
+          >
+            {link.label}
+          </a>
+        ))
+      }
     </div>
   </div>
 

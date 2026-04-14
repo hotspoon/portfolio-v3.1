@@ -11,11 +11,25 @@ const navigation = [
 ]
 
 const contactItems = [
-  "+62 81252373658",
-  "fariez8@gmail.com",
-  "linkedin.com/in/hamzah-al-farisi",
-  "Jakarta, Indonesia",
-  "hamzahalfarisi.com",
+  {
+    label: "+62 81252373658",
+    href: "tel:+6281252373658",
+  },
+  {
+    label: "fariez8@gmail.com",
+    href: "mailto:fariez8@gmail.com",
+  },
+  {
+    label: "linkedin.com/in/hamzah-al-farisi",
+    href: "https://www.linkedin.com/in/hamzah-al-farisi",
+  },
+  {
+    label: "Jakarta, Indonesia",
+  },
+  {
+    label: "hamzahalfarisi.com",
+    href: "https://www.hamzahalfarisi.com/",
+  },
 ]
 
 const socials = [
@@ -26,11 +40,7 @@ const socials = [
   {
     label: "LinkedIn",
     href: "https://www.linkedin.com/in/hamzah-al-farisi",
-  },
-  {
-    label: "Website",
-    href: "https://www.hamzahalfarisi.com/",
-  },
+  }
 ]
 ---
 
@@ -132,7 +142,20 @@ const socials = [
         <div class="mt-5 space-y-4 sm:mt-8 sm:space-y-5">
           {
             contactItems.map((item) => (
-              <div class="break-words text-base text-white sm:text-[1.1rem] xl:text-[1.2rem]">{item}</div>
+              item.href ? (
+                <a
+                  href={item.href}
+                  target={item.href.startsWith("http") ? "_blank" : undefined}
+                  rel={item.href.startsWith("http") ? "noreferrer" : undefined}
+                  class="block break-words text-base text-white transition hover:text-[#f2b67d] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#f2b67d] sm:text-[1.1rem] xl:text-[1.2rem]"
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <div class="break-words text-base text-white sm:text-[1.1rem] xl:text-[1.2rem]">
+                  {item.label}
+                </div>
+              )
             ))
           }
         </div>
