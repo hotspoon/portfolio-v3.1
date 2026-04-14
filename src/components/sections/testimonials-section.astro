@@ -201,12 +201,16 @@ const stars = Array.from({ length: 5 })
 </section>
 
 <script>
-  import EmblaCarousel from "embla-carousel"
-
   const cleanupMap = new WeakMap<HTMLElement, () => void>()
 
-  const initTestimonialsCarousel = () => {
+  const initTestimonialsCarousel = async () => {
     const carousels = document.querySelectorAll("[data-testimonials-carousel]")
+
+    if (carousels.length === 0) {
+      return
+    }
+
+    const { default: EmblaCarousel } = await import("embla-carousel")
 
     carousels.forEach((root) => {
       if (!(root instanceof HTMLElement)) {
@@ -354,7 +358,16 @@ const stars = Array.from({ length: 5 })
   }
 
   const bootTestimonialsCarousel = () => {
-    window.requestAnimationFrame(initTestimonialsCarousel)
+    const run = () => {
+      void initTestimonialsCarousel()
+    }
+
+    if ("requestIdleCallback" in window) {
+      window.requestIdleCallback(run, { timeout: 1200 })
+      return
+    }
+
+    setTimeout(run, 300)
   }
 
   if (document.readyState === "loading") {
