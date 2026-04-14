@@ -1,0 +1,24 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" rx="32" fill="#F7F2EA"/>
+  <rect x="42" y="42" width="1116" height="546" rx="28" fill="#FFFFFF"/>
+  <circle cx="1038" cy="128" r="132" fill="#F4C497" fill-opacity="0.42"/>
+  <circle cx="154" cy="560" r="168" fill="#243244" fill-opacity="0.08"/>
+  <rect x="92" y="92" width="180" height="68" rx="34" fill="#151515"/>
+  <text x="126" y="135" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="30" font-weight="700">HAMZAH</text>
+  <text x="92" y="250" fill="#141414" font-family="Arial, sans-serif" font-size="76" font-weight="800">Hamzah Al Farisi</text>
+  <text x="92" y="330" fill="#B35A1A" font-family="Arial, sans-serif" font-size="54" font-weight="800">Front-End Developer</text>
+  <text x="92" y="390" fill="#58627A" font-family="Arial, sans-serif" font-size="28" font-weight="500">
+    Building reliable web products for banking, payments,
+  </text>
+  <text x="92" y="428" fill="#58627A" font-family="Arial, sans-serif" font-size="28" font-weight="500">
+    and business systems with strong attention to performance and quality.
+  </text>
+  <rect x="92" y="472" width="262" height="58" rx="29" fill="#8F4714"/>
+  <text x="132" y="509" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="28" font-weight="700">hamzahalfarisi.com</text>
+  <rect x="792" y="152" width="260" height="312" rx="28" fill="#FFF2E7"/>
+  <rect x="816" y="178" width="212" height="264" rx="22" fill="#E8B17D"/>
+  <rect x="840" y="202" width="164" height="216" rx="18" fill="#FFFFFF"/>
+  <circle cx="922" cy="282" r="56" fill="#243244" fill-opacity="0.12"/>
+  <rect x="862" y="360" width="120" height="16" rx="8" fill="#243244" fill-opacity="0.9"/>
+  <rect x="876" y="388" width="94" height="12" rx="6" fill="#7B8799"/>
+</svg>

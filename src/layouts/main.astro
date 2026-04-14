@@ -1,20 +1,84 @@
 ---
 import "@/styles/global.css"
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Hamzah Al Farisi",
+  url: "https://www.hamzahalfarisi.com/",
+  image: "https://www.hamzahalfarisi.com/og-image.svg",
+  jobTitle: "Front-End Developer",
+  description:
+    "Frontend Developer focused on building reliable web products for banking, payments, and business systems with strong attention to performance, testing, and maintainable UI architecture.",
+  email: "mailto:fariez8@gmail.com",
+  telephone: "+62 81252373658",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Jakarta",
+    addressCountry: "Indonesia",
+  },
+  sameAs: [
+    "https://www.linkedin.com/in/hamzah-al-farisi",
+    "https://github.com/hotspoon",
+    "https://www.hamzahalfarisi.com/",
+  ],
+  alumniOf: {
+    "@type": "CollegeOrUniversity",
+    name: "Politeknik Elektronika Negeri Surabaya",
+  },
+  knowsAbout: [
+    "Frontend Development",
+    "React",
+    "Next.js",
+    "Vue",
+    "TypeScript",
+    "Testing",
+    "Performance Optimization",
+    "Banking Systems",
+    "Payment Systems",
+    "Web Accessibility",
+  ],
+}
 ---
 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Hamzah Al Farisi" />
+    <meta name="theme-color" content="#f7f2ea" />
     <meta
       name="description"
       content="Hamzah Al Farisi is a Front-End Developer focused on building reliable web products for banking, payments, and business systems with strong attention to performance, testing, and maintainable UI architecture."
     />
+    <link rel="canonical" href="https://www.hamzahalfarisi.com/" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
     <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico" />
     <link rel="manifest" href="/site.webmanifest" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Hamzah Al Farisi" />
+    <meta property="og:title" content="Hamzah Al Farisi | Front-End Developer" />
+    <meta
+      property="og:description"
+      content="Frontend Developer focused on reliable web products for banking, payments, and business systems."
+    />
+    <meta property="og:url" content="https://www.hamzahalfarisi.com/" />
+    <meta property="og:image" content="https://www.hamzahalfarisi.com/og-image.svg" />
+    <meta property="og:image:alt" content="Hamzah Al Farisi portfolio preview" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Hamzah Al Farisi | Front-End Developer" />
+    <meta
+      name="twitter:description"
+      content="Frontend Developer focused on reliable web products for banking, payments, and business systems."
+    />
+    <meta name="twitter:image" content="https://www.hamzahalfarisi.com/og-image.svg" />
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify(structuredData)}></script>
     <title>Hamzah Al Farisi | Front-End Developer</title>
   </head>
   <body>
