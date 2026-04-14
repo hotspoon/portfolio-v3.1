@@ -1,4 +1,6 @@
 ---
+import ArrowUpRightIcon from "@/components/ui/icons/arrow-up-right-icon.astro"
+
 const learningCards = [
   {
     kind: "Education",
@@ -115,7 +117,7 @@ const skillGroups = [
                   ]}
                   aria-label={`Open ${card.title}`}
                 >
-                  ↗
+                  <ArrowUpRightIcon class="h-5 w-5" />
                 </a>
               )}
             </div>

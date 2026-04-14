@@ -1,5 +1,7 @@
 ---
 import { Image } from "astro:assets"
+import ArrowRightIcon from "@/components/ui/icons/arrow-right-icon.astro"
+import ArrowUpRightIcon from "@/components/ui/icons/arrow-up-right-icon.astro"
 import logo from "@/assets/img/jcrea-nav-logo-v2.png"
 
 const navigation = [
@@ -61,10 +63,11 @@ const socials = [
 
       <a
         href="mailto:fariez8@gmail.com"
-        class="inline-flex min-h-[58px] min-w-[160px] items-center justify-center rounded-full bg-[#b85f1d] px-6 text-[1.4rem] font-medium tracking-[-0.04em] text-white transition hover:brightness-105 sm:min-h-[74px] sm:min-w-[200px] sm:px-8 sm:text-[2rem]"
+        class="inline-flex min-h-[58px] min-w-[160px] items-center justify-center gap-2 rounded-full bg-[#b85f1d] px-6 text-[1.4rem] font-medium tracking-[-0.04em] text-white transition hover:brightness-105 sm:min-h-[74px] sm:min-w-[200px] sm:px-8 sm:text-[2rem]"
         data-reveal="scale"
       >
-        Email me ↗
+        <span>Email me</span>
+        <ArrowUpRightIcon class="h-5 w-5 sm:h-7 sm:w-7" />
       </a>
     </div>
 
@@ -181,7 +184,7 @@ const socials = [
               href="mailto:fariez8@gmail.com"
               class="flex items-center justify-center bg-[#b85f1d] text-[1.4rem] text-white sm:text-[1.8rem]"
             >
-              ➤
+              <ArrowRightIcon class="h-5 w-5 sm:h-6 sm:w-6" />
             </a>
           </div>
         </div>

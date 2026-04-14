@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets"
+import ArrowUpRightIcon from "@/components/ui/icons/arrow-up-right-icon.astro"
 import serviceBg from "@/assets/img/service-bg.png"
 import serviceOne from "@/assets/img/service-1.png"
 import serviceTwo from "@/assets/img/service-2.png"
@@ -103,8 +104,8 @@ const serviceCards = [
                   decoding="async"
                 />
               </div>
-              <div class="absolute right-2 bottom-1 flex h-[4.35rem] w-[4.35rem] items-center justify-center rounded-full bg-[#1c2941] text-[2rem] text-white shadow-[0_14px_24px_rgba(13,21,39,0.5)] sm:right-3 sm:bottom-2 sm:h-[5.4rem] sm:w-[5.4rem] sm:text-[2.5rem]">
-                ↗
+              <div class="absolute right-2 bottom-1 flex h-[4.35rem] w-[4.35rem] items-center justify-center rounded-full bg-[#1c2941] text-white shadow-[0_14px_24px_rgba(13,21,39,0.5)] sm:right-3 sm:bottom-2 sm:h-[5.4rem] sm:w-[5.4rem]">
+                <ArrowUpRightIcon class="h-7 w-7 sm:h-8 sm:w-8" />
               </div>
             </div>
           </article>
