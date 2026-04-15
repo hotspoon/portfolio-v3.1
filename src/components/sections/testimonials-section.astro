@@ -41,8 +41,10 @@ const stars = Array.from({ length: 5 })
     src={textureBg}
     alt=""
     class="absolute inset-0 h-full w-full object-cover"
-    widths={[640, 960, 1280, 1600]}
+    widths={[480, 768, 1024, 1280]}
     sizes="100vw"
+    format="webp"
+    quality={34}
     loading="lazy"
     decoding="async"
   />
@@ -362,12 +364,35 @@ const stars = Array.from({ length: 5 })
       void initTestimonialsCarousel()
     }
 
-    if ("requestIdleCallback" in window) {
-      window.requestIdleCallback(run, { timeout: 1200 })
+    const targets = document.querySelectorAll("[data-testimonials-carousel]")
+    if (targets.length === 0) {
       return
     }
 
-    setTimeout(run, 300)
+    const schedule = () => {
+      if ("requestIdleCallback" in window) {
+        window.requestIdleCallback(run, { timeout: 1600 })
+        return
+      }
+
+      setTimeout(run, 450)
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const shouldLoad = entries.some((entry) => entry.isIntersecting)
+        if (!shouldLoad) return
+
+        observer.disconnect()
+        schedule()
+      },
+      {
+        rootMargin: "220px 0px",
+        threshold: 0.01,
+      }
+    )
+
+    targets.forEach((target) => observer.observe(target))
   }
 
   if (document.readyState === "loading") {
