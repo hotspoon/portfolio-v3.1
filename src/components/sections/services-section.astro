@@ -2,27 +2,24 @@
 import { Image } from "astro:assets"
 import ArrowUpRightIcon from "@/components/ui/icons/arrow-up-right-icon.astro"
 import serviceBg from "@/assets/img/service-bg.png"
-import serviceOne from "@/assets/img/service-1.png"
-import serviceTwo from "@/assets/img/service-2.png"
-import serviceThree from "@/assets/img/service-3.png"
 
 const serviceCards = [
   {
     title: "Reliable Product Delivery",
     featured: false,
-    image: serviceOne,
+    image: "/illustrations/services/reliable-product-delivery.svg",
     desc: "Reusable components, API integration, and delivery habits that help teams ship safely.",
   },
   {
     title: "Performance-Focused Frontend",
     featured: true,
-    image: serviceTwo,
+    image: "/illustrations/services/performance-focused-frontend.svg",
     desc: "From code splitting to load-time improvements, I care about real user performance and stability.",
   },
   {
     title: "Testing, Quality, and Scale",
     featured: false,
-    image: serviceThree,
+    image: "/illustrations/services/testing-quality-scale.svg",
     desc: "Unit testing, validation, and maintainable architecture for business-critical systems.",
   },
 ]
@@ -94,12 +91,10 @@ const serviceCards = [
               <div class="absolute top-4 right-4 left-4 h-6 rounded-t-[1.2rem] bg-[#8c8c8c]/36 blur-[0.5px] sm:top-5 sm:right-6 sm:left-6 sm:h-8 sm:rounded-t-[1.65rem]" />
               <div class="absolute top-10 right-5 h-16 w-16 rounded-full bg-white/30 blur-xl sm:top-11 sm:right-7 sm:h-20 sm:w-20" />
               <div class="relative overflow-hidden rounded-[1.1rem] bg-white/94 shadow-[0_16px_30px_rgba(0,0,0,0.14)] sm:rounded-[1.35rem] xl:rounded-[1.55rem]">
-                <Image
+                <img
                   src={card.image}
                   alt={card.title}
                   class="h-[220px] w-full object-cover object-center transition duration-700 group-hover:scale-[1.04] sm:h-[260px] xl:h-[302px]"
-                  width={380}
-                  sizes="(min-width: 1280px) 302px, (min-width: 768px) 33vw, 90vw"
                   loading="lazy"
                   decoding="async"
                 />

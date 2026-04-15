@@ -43,7 +43,7 @@ const stars = Array.from({ length: 5 })
     </div>
 
     <div
-      class="relative mt-3 grid gap-6 sm:mt-4 md:mt-5 md:gap-8 lg:mt-10 xl:-mt-10 xl:grid-cols-[minmax(220px,1fr)_minmax(560px,820px)_minmax(220px,1fr)] xl:items-center"
+      class="relative mt-4 grid gap-6 md:mt-6 md:gap-8 lg:mt-8 xl:mt-6 xl:grid-cols-[minmax(220px,1fr)_minmax(560px,820px)_minmax(220px,1fr)] xl:items-center"
     >
       <aside class="order-2 flex justify-center xl:order-none xl:justify-start">
         <div class="max-w-[320px] text-center xl:mt-8 xl:text-left" data-reveal>
@@ -63,26 +63,26 @@ const stars = Array.from({ length: 5 })
       </aside>
 
       <div
-        class="relative order-1 mx-auto flex min-h-[400px] w-full max-w-[860px] items-end justify-center overflow-visible sm:min-h-[445px] md:min-h-[470px] lg:min-h-[620px] xl:order-none xl:min-h-[760px]"
+        class="relative order-1 mx-auto flex min-h-[390px] w-full max-w-[860px] items-end justify-center overflow-visible md:min-h-[500px] lg:min-h-[640px] xl:order-none xl:min-h-[760px]"
       >
         <img
           src={accentStroke.src}
           alt=""
-          class="float-slow absolute top-[6.8rem] left-[36%] z-40 w-7 -translate-x-1/2 sm:top-[7.2rem] sm:left-[35%] sm:w-8 md:top-[4.4rem] md:left-[39%] md:w-9 lg:top-[10.6rem] lg:left-[38%] lg:w-10 xl:top-[6.5rem] xl:left-[32%] xl:w-14 2xl:w-16"
+          class="float-slow absolute top-[5.9rem] left-[36%] z-40 w-7 -translate-x-1/2 md:top-[2.6rem] md:left-[38%] md:w-9 lg:top-[9.8rem] lg:left-[39%] lg:w-10 xl:top-[6.9rem] xl:left-[33%] xl:w-14 2xl:w-16"
         />
         <img
           src={heroEllipse.src}
           alt=""
-          class="absolute bottom-0 z-0 w-[88%] max-w-[250px] sm:w-[92%] sm:max-w-[300px] md:w-[96%] md:max-w-[340px] lg:w-[112%] lg:max-w-[500px] xl:w-[128%] xl:max-w-[720px]"
+          class="absolute bottom-0 z-0 w-[88%] max-w-[255px] md:w-[96%] md:max-w-[360px] lg:w-[108%] lg:max-w-[480px] xl:w-[124%] xl:max-w-[700px]"
           data-reveal="scale"
         />
         <Image
           src={heroImage}
           alt="Portrait illustration"
-          class="absolute bottom-0 left-1/2 z-30 w-[52%] max-w-[210px] -translate-x-1/2 object-contain drop-shadow-[0_18px_30px_rgba(77,43,12,0.18)] sm:w-[52%] sm:max-w-[245px] md:w-[48%] md:max-w-[270px] lg:w-[58%] lg:max-w-[380px] xl:w-[68%] xl:max-w-[520px] xl:-bottom-16"
+          class="absolute bottom-0 left-1/2 z-30 w-[55%] max-w-[220px] -translate-x-1/2 object-contain drop-shadow-[0_18px_30px_rgba(77,43,12,0.18)] md:w-[56%] md:max-w-[315px] lg:w-[58%] lg:max-w-[380px] lg:-bottom-4 xl:w-[66%] xl:max-w-[500px] xl:-bottom-6"
           data-reveal="scale"
           widths={[320, 380, 440, 520]}
-          sizes="(min-width: 1280px) 430px, (min-width: 1024px) 360px, (min-width: 768px) 270px, (min-width: 640px) 245px, 210px"
+          sizes="(min-width: 1280px) 430px, (min-width: 1024px) 360px, (min-width: 768px) 315px, 220px"
           format="avif"
           quality={60}
           loading="eager"
@@ -114,7 +114,7 @@ const stars = Array.from({ length: 5 })
         </div>
       </div>
 
-      <aside class="order-3 flex justify-center xl:justify-end">
+      <aside class="order-3 flex justify-center xl:justify-end mb-4 md:mb-5 lg:mb-0">
         <div class="text-center xl:mt-8 xl:text-right" data-reveal>
           <div
             class="mb-3 flex justify-center gap-1 text-[#b85f1d] xl:justify-end"
