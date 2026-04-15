@@ -6,6 +6,9 @@ import { defineConfig } from "astro/config"
 
 export default defineConfig({
   site: "https://www.hamzahalfarisi.com",
+  build: {
+    inlineStylesheets: "always",
+  },
   integrations: [sitemap()],
   vite: {
     plugins: [tailwindcss()],
