@@ -202,8 +202,8 @@ const stars = Array.from({ length: 5 })
   </div>
 </section>
 
-<script is:inline>
-  const cleanupMap = new WeakMap()
+<script>
+  const cleanupMap = new WeakMap<HTMLElement, () => void>()
 
   const initTestimonialsCarousel = async () => {
     const carousels = document.querySelectorAll("[data-testimonials-carousel]")
@@ -238,7 +238,7 @@ const stars = Array.from({ length: 5 })
         loop: true,
       })
       let autoplayId = window.setInterval(() => embla.scrollNext(), 4500)
-      const disposers = []
+      const disposers: Array<() => void> = []
 
       const restartAutoplay = () => {
         window.clearInterval(autoplayId)
