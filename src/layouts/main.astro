@@ -82,6 +82,27 @@ const structuredData = {
   </head>
   <body>
     <slot />
+    <button
+      type="button"
+      class="pointer-events-none fixed right-4 bottom-4 z-50 inline-flex translate-y-4 items-center gap-2 rounded-full border border-[#1b1b1b]/10 bg-white/92 px-4 py-3 text-sm font-semibold text-[#1b1b1b] opacity-0 shadow-[0_16px_38px_rgba(19,25,38,0.14)] backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#8f4714] sm:right-6 sm:bottom-6 hover:cursor-pointer"
+      aria-label="Back to navigation"
+      data-scroll-top-button
+    >
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 24 24"
+        class="h-4 w-4"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M12 19V5"></path>
+        <path d="M6 11l6-6 6 6"></path>
+      </svg>
+      <span>Navbar</span>
+    </button>
     <script>
       const initGlobalReveal = () => {
         const items = document.querySelectorAll("[data-reveal]")
@@ -116,6 +137,78 @@ const structuredData = {
       }
 
       document.addEventListener("astro:page-load", initGlobalReveal)
+
+      const initStickyNavbarState = () => {
+        const wrappers = document.querySelectorAll("[data-sticky-nav-shell]")
+
+        const updateState = () => {
+          const isScrolled = window.scrollY > 24
+
+          wrappers.forEach((wrapper) => {
+            if (!(wrapper instanceof HTMLElement)) return
+
+            wrapper.classList.toggle("border-transparent", !isScrolled)
+            wrapper.classList.toggle("bg-transparent", !isScrolled)
+            wrapper.classList.toggle("shadow-none", !isScrolled)
+            wrapper.classList.toggle("backdrop-blur-none", !isScrolled)
+
+            wrapper.classList.toggle("border-white/30", isScrolled)
+            wrapper.classList.toggle("bg-white/18", isScrolled)
+            wrapper.classList.toggle("shadow-[0_10px_28px_rgba(22,18,10,0.05)]", isScrolled)
+            wrapper.classList.toggle("backdrop-blur-[14px]", isScrolled)
+          })
+        }
+
+        updateState()
+        window.addEventListener("scroll", updateState, { passive: true })
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initStickyNavbarState, {
+          once: true,
+        })
+      } else {
+        initStickyNavbarState()
+      }
+
+      document.addEventListener("astro:page-load", initStickyNavbarState)
+
+      const initScrollTopButton = () => {
+        const button = document.querySelector("[data-scroll-top-button]")
+        const topTarget = document.querySelector("#home")
+
+        if (!(button instanceof HTMLButtonElement)) return
+        if (!(topTarget instanceof HTMLElement)) return
+
+        const updateVisibility = () => {
+          const shouldShow = window.scrollY > 220
+          button.classList.toggle("pointer-events-none", !shouldShow)
+          button.classList.toggle("opacity-0", !shouldShow)
+          button.classList.toggle("translate-y-4", !shouldShow)
+          button.classList.toggle("opacity-100", shouldShow)
+          button.classList.toggle("translate-y-0", shouldShow)
+        }
+
+        if (button.dataset.scrollTopReady !== "true") {
+          button.dataset.scrollTopReady = "true"
+          button.addEventListener("click", () => {
+            topTarget.scrollIntoView({ behavior: "smooth", block: "start" })
+          })
+        }
+
+        updateVisibility()
+        window.addEventListener("scroll", updateVisibility, { passive: true })
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initScrollTopButton, {
+          once: true,
+        })
+      } else {
+        initScrollTopButton()
+      }
+
+      document.addEventListener("astro:page-load", initScrollTopButton)
     </script>
   </body>
 </html>

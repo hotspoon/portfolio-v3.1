@@ -1,5 +1,6 @@
 ---
 import Layout from "@/layouts/main.astro"
+import Navbar from "@/components/navbar.astro"
 import HeroSection from "@/components/sections/hero-section.astro"
 import ServicesSection from "@/components/sections/services-section.astro"
 import ExperienceSection from "@/components/sections/experience-section.astro"
@@ -15,18 +16,23 @@ import FooterSection from "@/components/sections/footer-section.astro"
 <Layout>
   <main id="home" class="px-3 py-3 sm:px-4 sm:py-4 md:px-6 lg:px-8 xl:px-10">
     <div
-      class="mx-auto w-full max-w-[1800px] overflow-hidden rounded-[1.75rem] bg-white shadow-[0_30px_80px_rgba(30,24,12,0.08)] sm:rounded-[2.1rem] xl:rounded-[2.6rem]"
+      class="mx-auto w-full max-w-[1800px] rounded-[1.75rem] bg-white shadow-[0_30px_80px_rgba(30,24,12,0.08)] sm:rounded-[2.1rem] xl:rounded-[2.6rem]"
     >
-      <HeroSection />
-      <ServicesSection />
-      <ExperienceSection />
-      <AboutSection />
-      <PortfolioSection />
-      <TestimonialsSection />
-      <CtaSection />
-      <MarqueeSection />
-      <BlogSection />
-      <FooterSection />
+      <div class="sticky top-0 z-50 border-b border-transparent bg-transparent px-3 py-3 shadow-none backdrop-blur-none transition-[background-color,border-color,box-shadow,backdrop-filter] duration-300 sm:px-4 sm:py-4 md:px-6 lg:px-8 xl:px-10" data-sticky-nav-shell>
+        <Navbar />
+      </div>
+      <div class="overflow-hidden rounded-[1.75rem] sm:rounded-[2.1rem] xl:rounded-[2.6rem]">
+        <HeroSection />
+        <ServicesSection />
+        <ExperienceSection />
+        <AboutSection />
+        <PortfolioSection />
+        <TestimonialsSection />
+        <CtaSection />
+        <MarqueeSection />
+        <BlogSection />
+        <FooterSection />
+      </div>
     </div>
   </main>
 </Layout>
