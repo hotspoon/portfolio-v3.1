@@ -120,12 +120,33 @@
   }
   html {
     @apply scroll-smooth font-sans;
+    scroll-padding-top: 6.75rem;
   }
   body {
     @apply min-h-screen text-foreground antialiased;
     background:
       radial-gradient(circle at top, rgba(248, 192, 129, 0.2), transparent 32%),
       linear-gradient(180deg, #faf7f2 0%, #f6f1e8 100%);
+  }
+
+  main [id],
+  section[id],
+  footer[id] {
+    scroll-margin-top: 6.75rem;
+  }
+}
+
+@media (min-width: 768px) {
+  @layer base {
+    html {
+      scroll-padding-top: 7.5rem;
+    }
+
+    main [id],
+    section[id],
+    footer[id] {
+      scroll-margin-top: 7.5rem;
+    }
   }
 }
 
