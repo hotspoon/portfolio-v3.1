@@ -168,10 +168,25 @@ const links = [
       })
     })
 
+    if (document.documentElement.dataset.navbarActiveReady === "true") {
+      return
+    }
+    document.documentElement.dataset.navbarActiveReady = "true"
+
     const sectionIds = ["home", "service", "about", "resume", "project", "contact"]
     const sections = sectionIds
       .map((id) => document.getElementById(id))
       .filter((section): section is HTMLElement => section instanceof HTMLElement)
+
+    document.querySelectorAll("[data-nav-link]").forEach((link) => {
+      if (!(link instanceof HTMLAnchorElement)) return
+
+      link.addEventListener("click", () => {
+        const targetId = link.dataset.navTarget
+        if (!targetId) return
+        setActiveLink(targetId)
+      })
+    })
 
     const updateFromHash = () => {
       const hashTarget = window.location.hash.replace("#", "") || "home"
@@ -180,11 +195,20 @@ const links = [
 
     if (sections.length > 0) {
       const updateFromScroll = () => {
-        const scrollOffset = window.scrollY + 140
+        const marker = 140
         let activeSection = sections[0]
 
         sections.forEach((section) => {
-          if (section.offsetTop <= scrollOffset) {
+          const rect = section.getBoundingClientRect()
+          const sectionTop = rect.top
+          const sectionBottom = rect.bottom
+
+          if (sectionTop <= marker && sectionBottom > marker) {
+            activeSection = section
+            return
+          }
+
+          if (sectionTop <= marker) {
             activeSection = section
           }
         })
