@@ -4,8 +4,8 @@ import logo from "@/assets/img/jcrea-nav-logo-v2.png"
 
 const links = [
   { href: "#home", label: "Home", active: true },
-  { href: "#about", label: "About" },
   { href: "#service", label: "Focus" },
+  { href: "#about", label: "About" },
   { href: "#resume", label: "Resume" },
   { href: "#project", label: "Work" },
   { href: "#contact", label: "Contact" },
@@ -168,9 +168,10 @@ const links = [
       })
     })
 
-    const sections = Array.from(
-      document.querySelectorAll<HTMLElement>("#home, #about, #service, #resume, #project, #contact")
-    )
+    const sectionIds = ["home", "service", "about", "resume", "project", "contact"]
+    const sections = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter((section): section is HTMLElement => section instanceof HTMLElement)
 
     const updateFromHash = () => {
       const hashTarget = window.location.hash.replace("#", "") || "home"
@@ -178,23 +179,21 @@ const links = [
     }
 
     if (sections.length > 0) {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          const visibleEntries = entries
-            .filter((entry) => entry.isIntersecting)
-            .sort((a, b) => b.intersectionRatio - a.intersectionRatio)
+      const updateFromScroll = () => {
+        const scrollOffset = window.scrollY + 140
+        let activeSection = sections[0]
 
-          const activeSection = visibleEntries[0]?.target
-          if (!(activeSection instanceof HTMLElement)) return
-          setActiveLink(activeSection.id)
-        },
-        {
-          rootMargin: "-22% 0px -58% 0px",
-          threshold: [0.15, 0.35, 0.55],
-        }
-      )
+        sections.forEach((section) => {
+          if (section.offsetTop <= scrollOffset) {
+            activeSection = section
+          }
+        })
 
-      sections.forEach((section) => observer.observe(section))
+        setActiveLink(activeSection.id)
+      }
+
+      window.addEventListener("scroll", updateFromScroll, { passive: true })
+      updateFromScroll()
     }
 
     window.addEventListener("hashchange", updateFromHash)
