@@ -26,6 +26,8 @@ const links = [
               link.active &&
                 "bg-[#8f4714] text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.16)]",
             ]}
+            data-nav-link
+            data-nav-target={link.href.slice(1)}
           >
             {link.label}
           </a>
@@ -74,6 +76,8 @@ const links = [
           <a
             href={link.href}
             class="rounded-full px-3 py-2 text-xs font-medium tracking-[0.01em] transition duration-200 hover:bg-white/10 sm:px-4 sm:text-sm xl:px-5 xl:py-2.5"
+            data-nav-link
+            data-nav-target={link.href.slice(1)}
           >
             {link.label}
           </a>
@@ -97,6 +101,8 @@ const links = [
               link.active && "bg-[#8f4714] text-white",
             ]}
             data-mobile-nav-link
+            data-nav-link
+            data-nav-target={link.href.slice(1)}
           >
             {link.label}
           </a>
@@ -108,19 +114,39 @@ const links = [
 
 <script>
   const initMobileNav = () => {
-    const navs = document.querySelectorAll("[data-mobile-nav-toggle]")
+    const activeClasses = [
+      "bg-[#8f4714]",
+      "text-white",
+      "shadow-[inset_0_1px_0_rgba(255,255,255,0.16)]",
+    ]
 
-    navs.forEach((toggle) => {
+    const setActiveLink = (targetId: string) => {
+      document.querySelectorAll("[data-nav-link]").forEach((link) => {
+        if (!(link instanceof HTMLAnchorElement)) return
+
+        const isActive = link.dataset.navTarget === targetId
+        activeClasses.forEach((className) => {
+          link.classList.toggle(className, isActive)
+        })
+      })
+    }
+
+    const navs = document.querySelectorAll("nav")
+
+    navs.forEach((nav) => {
+      if (!(nav instanceof HTMLElement)) return
+      if (nav.dataset.navReady === "true") return
+      nav.dataset.navReady = "true"
+
+      const toggle = nav.querySelector("[data-mobile-nav-toggle]")
+      const menu = nav.querySelector("[data-mobile-nav-menu]")
+      const links = nav.querySelectorAll("[data-mobile-nav-link]")
       if (!(toggle instanceof HTMLButtonElement)) return
+      if (!(menu instanceof HTMLElement)) return
 
-      const nav = toggle.closest("nav")
-      const menu = nav?.querySelector("[data-mobile-nav-menu]")
-      const links = nav?.querySelectorAll("[data-mobile-nav-link]") ?? []
       const top = toggle.querySelector('[data-mobile-nav-line="top"]')
       const middle = toggle.querySelector('[data-mobile-nav-line="middle"]')
       const bottom = toggle.querySelector('[data-mobile-nav-line="bottom"]')
-
-      if (!(menu instanceof HTMLElement)) return
 
       const setOpen = (open: boolean) => {
         toggle.setAttribute("aria-expanded", open ? "true" : "false")
@@ -132,9 +158,6 @@ const links = [
         bottom?.classList.toggle("-rotate-45", open)
       }
 
-      if (toggle.dataset.mobileNavReady === "true") return
-      toggle.dataset.mobileNavReady = "true"
-
       toggle.addEventListener("click", () => {
         const isOpen = toggle.getAttribute("aria-expanded") === "true"
         setOpen(!isOpen)
@@ -144,6 +167,38 @@ const links = [
         link.addEventListener("click", () => setOpen(false))
       })
     })
+
+    const sections = Array.from(
+      document.querySelectorAll<HTMLElement>("#home, #about, #service, #resume, #project, #contact")
+    )
+
+    const updateFromHash = () => {
+      const hashTarget = window.location.hash.replace("#", "") || "home"
+      setActiveLink(hashTarget)
+    }
+
+    if (sections.length > 0) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          const visibleEntries = entries
+            .filter((entry) => entry.isIntersecting)
+            .sort((a, b) => b.intersectionRatio - a.intersectionRatio)
+
+          const activeSection = visibleEntries[0]?.target
+          if (!(activeSection instanceof HTMLElement)) return
+          setActiveLink(activeSection.id)
+        },
+        {
+          rootMargin: "-22% 0px -58% 0px",
+          threshold: [0.15, 0.35, 0.55],
+        }
+      )
+
+      sections.forEach((section) => observer.observe(section))
+    }
+
+    window.addEventListener("hashchange", updateFromHash)
+    updateFromHash()
   }
 
   if (document.readyState === "loading") {
