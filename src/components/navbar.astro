@@ -5,8 +5,8 @@ import logo from "@/assets/img/jcrea-nav-logo-v2.png"
 const links = [
   { href: "#home", label: "Home", active: true },
   { href: "#service", label: "Focus" },
-  { href: "#about", label: "About" },
   { href: "#resume", label: "Resume" },
+  { href: "#about", label: "About" },
   { href: "#project", label: "Work" },
   { href: "#contact", label: "Contact" },
 ]
@@ -173,10 +173,13 @@ const links = [
     }
     document.documentElement.dataset.navbarActiveReady = "true"
 
-    const sectionIds = ["home", "service", "about", "resume", "project", "contact"]
-    const sections = sectionIds
+    let pendingTargetId: string | null = null
+    let pendingTargetUntil = 0
+
+    const anchorIds = ["home", "service", "resume", "about", "project", "contact"]
+    const anchors = anchorIds
       .map((id) => document.getElementById(id))
-      .filter((section): section is HTMLElement => section instanceof HTMLElement)
+      .filter((anchor): anchor is HTMLElement => anchor instanceof HTMLElement)
 
     document.querySelectorAll("[data-nav-link]").forEach((link) => {
       if (!(link instanceof HTMLAnchorElement)) return
@@ -184,6 +187,8 @@ const links = [
       link.addEventListener("click", () => {
         const targetId = link.dataset.navTarget
         if (!targetId) return
+        pendingTargetId = targetId
+        pendingTargetUntil = window.performance.now() + 1200
         setActiveLink(targetId)
       })
     })
@@ -193,27 +198,45 @@ const links = [
       setActiveLink(hashTarget)
     }
 
-    if (sections.length > 0) {
+    if (anchors.length > 0) {
       const updateFromScroll = () => {
-        const marker = 140
-        let activeSection = sections[0]
+        const stickyShell = document.querySelector("[data-sticky-nav-shell]")
+        const shellHeight =
+          stickyShell instanceof HTMLElement
+            ? stickyShell.getBoundingClientRect().height
+            : 0
+        const marker = shellHeight + 40
 
-        sections.forEach((section) => {
-          const rect = section.getBoundingClientRect()
-          const sectionTop = rect.top
-          const sectionBottom = rect.bottom
+        if (pendingTargetId) {
+          const pendingAnchor = anchors.find((anchor) => anchor.id === pendingTargetId)
 
-          if (sectionTop <= marker && sectionBottom > marker) {
-            activeSection = section
-            return
+          if (pendingAnchor) {
+            const rect = pendingAnchor.getBoundingClientRect()
+            const hasReachedTarget =
+              rect.top <= marker + 8 && rect.bottom >= marker - 8
+
+            if (hasReachedTarget || window.performance.now() > pendingTargetUntil) {
+              pendingTargetId = null
+            } else {
+              setActiveLink(pendingAnchor.id || "home")
+              return
+            }
+          } else {
+            pendingTargetId = null
           }
+        }
 
-          if (sectionTop <= marker) {
-            activeSection = section
+        let activeAnchor = anchors[0]
+
+        anchors.forEach((anchor) => {
+          const rect = anchor.getBoundingClientRect()
+          if (rect.top <= marker) {
+            activeAnchor = anchor
           }
         })
 
-        setActiveLink(activeSection.id)
+        const targetId = activeAnchor.id || "home"
+        setActiveLink(targetId)
       }
 
       window.addEventListener("scroll", updateFromScroll, { passive: true })
