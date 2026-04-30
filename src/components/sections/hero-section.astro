@@ -72,10 +72,14 @@ const stars = Array.from({ length: 5 })
       <div
         class="relative order-1 mx-auto flex min-h-[390px] w-full max-w-[860px] items-end justify-center overflow-visible md:min-h-[500px] lg:min-h-[640px] xl:order-none xl:min-h-[760px]"
       >
-        <img
-          src={accentStroke.src}
+        <Image
+          src={accentStroke}
           alt=""
           class="float-slow absolute top-[5.9rem] left-[36%] z-40 w-7 -translate-x-1/2 md:top-[2.6rem] md:left-[38%] md:w-9 lg:top-[9.8rem] lg:left-[39%] lg:w-10 xl:top-[6.9rem] xl:left-[33%] xl:w-14 2xl:w-16"
+          widths={[28, 36, 40, 56, 64]}
+          sizes="(min-width: 1536px) 64px, (min-width: 1280px) 56px, (min-width: 1024px) 40px, (min-width: 768px) 36px, 28px"
+          loading="eager"
+          decoding="async"
         />
         <Image
           src={heroEllipse}

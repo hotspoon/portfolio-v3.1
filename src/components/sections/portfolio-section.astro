@@ -1,4 +1,8 @@
 ---
+import { Image } from "astro:assets"
+import aurelisWeb from "@/assets/img/aurelis-web.png"
+import rmSederhanaWeb from "@/assets/img/rm-sederhana-web.png"
+
 const caseStudies = [
   {
     company: "PT Bank Rakyat Indonesia Tbk",
@@ -73,7 +77,7 @@ const caseStudies = [
 const landingPageProjects = [
   {
     title: "Auralis",
-    image: "/src/assets/img/aurelis-web.png",
+    image: aurelisWeb,
     url: "https://auralisapp.vercel.app/",
     type: "SaaS Landing Page",
     summary:
@@ -87,7 +91,7 @@ const landingPageProjects = [
   },
   {
     title: "RM Sederhana",
-    image: "/src/assets/img/rm-sederhana-web.png",
+    image: rmSederhanaWeb,
     url: "https://rm-sederhana.vercel.app/",
     type: "Restaurant Landing Page",
     summary:
@@ -159,12 +163,31 @@ const proofPoints = [
             data-reveal
           >
             <div class="mb-5 overflow-hidden rounded-[1.3rem] border border-black/5 bg-white/40">
-              <img
-                src={item.image}
-                alt={item.title}
-                class="h-[190px] w-full object-cover object-center sm:h-[220px]"
-                loading="lazy"
-              />
+              {
+                item.image.startsWith("/") ? (
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    width={828}
+                    height={440}
+                    class="h-[190px] w-full object-cover object-center sm:h-[220px]"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                ) : (
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    width={828}
+                    height={440}
+                    class="h-[190px] w-full object-cover object-center sm:h-[220px]"
+                    widths={[480, 640, 828]}
+                    sizes="(min-width: 640px) 50vw, 100vw"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                )
+              }
             </div>
 
             <div class="flex flex-wrap items-center gap-3 text-sm">
@@ -270,11 +293,16 @@ const proofPoints = [
             >
               <div class="border-b border-black/5 bg-white/35 p-4 sm:p-5">
                 <div class="overflow-hidden rounded-[1.2rem] border border-black/5 bg-white/60">
-                  <img
+                  <Image
                     src={item.image}
                     alt={item.title}
+                    width={1024}
+                    height={560}
                     class="h-[220px] w-full object-cover object-center sm:h-[250px]"
+                    widths={[480, 768, 1024]}
+                    sizes="(min-width: 1280px) 50vw, 100vw"
                     loading="lazy"
+                    decoding="async"
                   />
                 </div>
               </div>
