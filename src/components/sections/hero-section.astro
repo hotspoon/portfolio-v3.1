@@ -6,6 +6,9 @@ import heroEllipse from "@/assets/img/Ellipse-2.png"
 import helloSpark from "@/assets/img/Vector-1.png"
 import accentStroke from "@/assets/img/Vector-2.png"
 
+const cvHref =
+  "https://drive.google.com/file/d/169BZtUsVHyvkzTF5pwoow2BWyuMJi4jg/view?usp=drive_link"
+
 const stars = Array.from({ length: 5 })
 ---
 
@@ -122,10 +125,12 @@ const stars = Array.from({ length: 5 })
               <ArrowUpRightIcon class="h-5 w-5 sm:h-5.5 sm:w-5.5" />
             </a>
             <a
-              href="#contact"
+              href={cvHref}
+              target="_blank"
+              rel="noreferrer"
               class="text-center text-base font-medium text-white/88 transition hover:text-white sm:text-lg xl:text-xl"
             >
-              Contact me
+              View CV
             </a>
           </div>
         </div>
