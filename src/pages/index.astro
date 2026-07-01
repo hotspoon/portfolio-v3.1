@@ -17,22 +17,86 @@ import FooterSection from "@/components/sections/footer-section.astro"
   <main class="px-3 py-3 sm:px-4 sm:py-4 md:px-6 lg:px-8 xl:px-10">
     <div
       class="mx-auto w-full max-w-[1800px] rounded-[1.75rem] bg-white shadow-[0_30px_80px_rgba(30,24,12,0.08)] sm:rounded-[2.1rem] xl:rounded-[2.6rem]"
+      data-gsap-shell
     >
       <div class="sticky top-0 z-50 border-b border-transparent bg-transparent px-3 py-3 shadow-none backdrop-blur-none transition-[background-color,border-color,box-shadow,backdrop-filter] duration-300 sm:px-4 sm:py-4 md:px-6 lg:px-8 xl:px-10" data-sticky-nav-shell>
         <Navbar />
       </div>
       <div class="overflow-hidden rounded-[1.75rem] sm:rounded-[2.1rem] xl:rounded-[2.6rem]">
-        <HeroSection />
-        <ServicesSection />
-        <ExperienceSection />
-        <AboutSection />
-        <PortfolioSection />
-        <TestimonialsSection />
-        <CtaSection />
-        <MarqueeSection />
-        <BlogSection />
-        <FooterSection />
+        <div data-gsap-section><HeroSection /></div>
+        <div data-gsap-section><ServicesSection /></div>
+        <div data-gsap-section><ExperienceSection /></div>
+        <div data-gsap-section><AboutSection /></div>
+        <div data-gsap-section><PortfolioSection /></div>
+        <div data-gsap-section><TestimonialsSection /></div>
+        <div data-gsap-section><CtaSection /></div>
+        <div data-gsap-section><MarqueeSection /></div>
+        <div data-gsap-section><BlogSection /></div>
+        <div data-gsap-section><FooterSection /></div>
       </div>
     </div>
   </main>
 </Layout>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+
+<script>
+  const initGsapMotion = () => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return
+
+    const shell = document.querySelector("[data-gsap-shell]")
+    const sections = Array.from(document.querySelectorAll("[data-gsap-section]")).filter(
+      (section): section is HTMLElement => section instanceof HTMLElement
+    )
+
+    if (sections.length === 0) return
+
+    const gsapGlobal = (window as Window & { gsap?: any; ScrollTrigger?: any }).gsap
+    const scrollTriggerGlobal = (window as Window & { ScrollTrigger?: any }).ScrollTrigger
+    if (!gsapGlobal || !scrollTriggerGlobal) return
+
+    gsapGlobal.registerPlugin(scrollTriggerGlobal)
+
+    if (shell instanceof HTMLElement && shell.dataset.gsapShellReady !== "true") {
+      shell.dataset.gsapShellReady = "true"
+      gsapGlobal.fromTo(
+        shell,
+        { autoAlpha: 0, y: 22, scale: 0.99 },
+        { autoAlpha: 1, y: 0, scale: 1, duration: 0.8, ease: "power2.out" }
+      )
+    }
+
+    sections.forEach((section, index) => {
+      if (section.dataset.gsapReady === "true") return
+      section.dataset.gsapReady = "true"
+
+      gsapGlobal.fromTo(
+        section,
+        { autoAlpha: 0, y: 44 },
+        {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.75,
+          delay: index < 2 ? index * 0.08 : 0,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: section,
+            start: "top 88%",
+            once: true,
+          },
+        }
+      )
+    })
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initGsapMotion, { once: true })
+  } else {
+    initGsapMotion()
+  }
+
+  document.addEventListener("astro:page-load", () => {
+    initGsapMotion()
+  })
+</script>
