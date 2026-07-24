@@ -2,6 +2,10 @@
 import { Image } from "astro:assets"
 import aurelisWeb from "@/assets/img/aurelis-web.png"
 import rmSederhanaWeb from "@/assets/img/rm-sederhana-web.png"
+import cepattagihHome from "@/assets/img/cepattagih/home.png"
+import cepattagihInvoice from "@/assets/img/cepattagih/demo_invoice.png"
+import sahutajaHome from "@/assets/img/sahutaja/landing_page_home.png"
+import sahutajaDashboard from "@/assets/img/sahutaja/dashboard.png"
 
 const caseStudies = [
   {
@@ -68,8 +72,41 @@ const caseStudies = [
 
 const landingPageProjects = [
   {
+    title: "CepatTagih",
+    image: cepattagihHome,
+    secondaryImage: cepattagihInvoice,
+    url: "https://invoiceflow-next.vercel.app/",
+    type: "Invoice Management",
+    summary:
+      "A focused invoicing product that turns billing into a clearer, more confident workflow for growing businesses.",
+    highlights: [
+      "Invoice workspace",
+      "Payment visibility",
+      "Fast business flow",
+    ],
+    accent: "sunset",
+    layout: "featured",
+  },
+  {
+    title: "Sahutaja",
+    image: sahutajaHome,
+    secondaryImage: sahutajaDashboard,
+    url: "https://sahutaja.vercel.app/",
+    type: "Community Platform",
+    summary:
+      "A warm digital space for conversations, updates, and everyday community coordination in one approachable experience.",
+    highlights: [
+      "Conversation-first UX",
+      "Activity dashboard",
+      "Friendly visual system",
+    ],
+    accent: "ocean",
+    layout: "featured",
+  },
+  {
     title: "Auralis",
     image: aurelisWeb,
+    secondaryImage: aurelisWeb,
     url: "https://auralisapp.vercel.app/",
     type: "SaaS Landing Page",
     summary:
@@ -79,11 +116,13 @@ const landingPageProjects = [
       "Feature-driven section flow",
       "B2B SaaS positioning",
     ],
-    accent: "bg-[#243244] text-white",
+    accent: "ink",
+    layout: "standard",
   },
   {
     title: "RM Sederhana",
     image: rmSederhanaWeb,
+    secondaryImage: rmSederhanaWeb,
     url: "https://rm-sederhana.vercel.app/",
     type: "Restaurant Landing Page",
     summary:
@@ -93,8 +132,8 @@ const landingPageProjects = [
       "Brand and menu presentation",
       "Mobile-friendly browsing flow",
     ],
-    accent:
-      "bg-[linear-gradient(180deg,#fff8f2_0%,#fff2e8_100%)] text-[#243244]",
+    accent: "cream",
+    layout: "standard",
   },
 ]
 
@@ -298,69 +337,143 @@ const proofPoints = [
         </div>
       </div>
 
-      <div class="mt-6 grid gap-5 xl:grid-cols-2">
+      <div class="mt-7 grid gap-5 lg:grid-cols-2">
         {
           landingPageProjects.map((item) => (
             <article
               class:list={[
-                "hover-lift overflow-hidden rounded-[1.7rem] border border-[#e7ecf3] shadow-[0_18px_42px_rgba(28,41,65,0.06)]",
-                item.accent,
+                "hover-lift group relative overflow-hidden rounded-[1.7rem] border shadow-[0_18px_42px_rgba(28,41,65,0.07)]",
+                item.layout === "featured" && "lg:col-span-2",
+                item.accent === "sunset" &&
+                  "border-[#f3cfb3] bg-[linear-gradient(125deg,#fff7ee_0%,#fff0e2_48%,#ffe1c4_100%)] text-[#3d281d]",
+                item.accent === "ocean" &&
+                  "border-[#c8e4eb] bg-[linear-gradient(125deg,#effbfc_0%,#e1f4f8_50%,#d7edf5_100%)] text-[#183945]",
+                item.accent === "ink" &&
+                  "border-[#243244] bg-[#243244] text-white",
+                item.accent === "cream" &&
+                  "border-[#f0d9c8] bg-[linear-gradient(180deg,#fffaf5_0%,#fff0e4_100%)] text-[#243244]",
               ]}
               data-reveal
             >
-              <div class="border-b border-black/5 bg-white/35 p-4 sm:p-5">
-                <div class="overflow-hidden rounded-[1.2rem] border border-black/5 bg-white/60">
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    width={1024}
-                    height={560}
-                    class="h-[220px] w-full object-cover object-center sm:h-[250px]"
-                    widths={[480, 768, 1024]}
-                    sizes="(min-width: 1280px) 50vw, 100vw"
-                    loading="lazy"
-                    decoding="async"
-                  />
+              {item.layout === "featured" ? (
+                <div class="grid lg:grid-cols-[1.02fr_0.98fr]">
+                  <div class="relative min-h-[290px] overflow-hidden p-4 sm:p-5 lg:min-h-[390px] lg:p-6">
+                    <div class="absolute inset-x-10 top-10 h-40 rounded-full bg-white/40 blur-3xl" />
+                    <div class="relative h-full overflow-hidden rounded-[1.2rem] border border-white/70 bg-white/55 shadow-[0_18px_34px_rgba(40,60,72,0.13)]">
+                      <Image
+                        src={item.image}
+                        alt={`${item.title} homepage`}
+                        width={1024}
+                        height={560}
+                        class="h-[280px] w-full object-cover object-top transition duration-500 group-hover:scale-[1.025] sm:h-[350px] lg:h-[390px]"
+                        widths={[480, 768, 1024]}
+                        sizes="(min-width: 1024px) 50vw, 100vw"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
+                    <div class="absolute right-7 bottom-3 hidden w-[42%] overflow-hidden rounded-xl border-4 border-white/80 bg-white shadow-[0_18px_34px_rgba(40,60,72,0.18)] sm:block lg:right-9 lg:bottom-6">
+                      <Image
+                        src={item.secondaryImage}
+                        alt={`${item.title} product detail`}
+                        width={560}
+                        height={350}
+                        class="aspect-[1.6] w-full object-cover object-top"
+                        widths={[320, 560]}
+                        sizes="(min-width: 1024px) 22vw, 38vw"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
+                  </div>
+                  <div class="flex flex-col justify-center p-5 sm:p-7 lg:p-9">
+                    <div class="flex flex-wrap items-center gap-3">
+                      <span class="rounded-full bg-white/75 px-3 py-1 text-sm font-bold text-[#a34c16] shadow-[0_8px_18px_rgba(28,41,65,0.06)]">
+                        {item.type}
+                      </span>
+                      <span class="text-xs font-semibold tracking-[0.12em] uppercase opacity-55">
+                        Featured build
+                      </span>
+                    </div>
+                    <h4 class="mt-6 text-[2rem] leading-[0.96] font-black tracking-[-0.065em] sm:text-[2.7rem]">
+                      {item.title}
+                    </h4>
+                    <p class="mt-4 max-w-[470px] text-sm leading-7 opacity-75 sm:text-base sm:leading-8">
+                      {item.summary}
+                    </p>
+                    <div class="mt-6 flex flex-wrap gap-2.5">
+                      {item.highlights.map((point) => (
+                        <span class="rounded-full border border-white/70 bg-white/60 px-3 py-2 text-sm font-medium shadow-[0_8px_18px_rgba(28,41,65,0.04)]">
+                          {point}
+                        </span>
+                      ))}
+                    </div>
+                    <a
+                      href={item.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      class="mt-7 inline-flex w-fit items-center gap-2 rounded-full bg-[#243244] px-5 py-3 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-[#b35a1a]"
+                    >
+                      Visit live site <span aria-hidden="true">↗</span>
+                    </a>
+                  </div>
                 </div>
-              </div>
+              ) : (
+                <div>
+                  <div class="border-b border-black/5 bg-white/30 p-4 sm:p-5">
+                    <div class="overflow-hidden rounded-[1.2rem] border border-black/5 bg-white/60">
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        width={1024}
+                        height={560}
+                        class="h-[220px] w-full object-cover object-center transition duration-500 group-hover:scale-[1.025] sm:h-[250px]"
+                        widths={[480, 768, 1024]}
+                        sizes="(min-width: 1024px) 50vw, 100vw"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
+                  </div>
+                  <div class="p-5 sm:p-6">
+                    <div class="flex flex-wrap items-center gap-3">
+                      <span class="rounded-full bg-white/80 px-3 py-1 text-sm font-semibold text-[#b35a1a] shadow-[0_8px_18px_rgba(28,41,65,0.05)]">
+                        {item.type}
+                      </span>
+                      <a
+                        href={item.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        class="inline-flex items-center rounded-full border border-black/8 bg-white/80 px-3 py-1 text-sm font-medium text-[#475467] transition hover:border-[#b35a1a]/30 hover:text-[#243244]"
+                      >
+                        Live Site
+                      </a>
+                    </div>
 
-              <div class="p-5 sm:p-6">
-                <div class="flex flex-wrap items-center gap-3">
-                  <span class="rounded-full bg-white/80 px-3 py-1 text-sm font-semibold text-[#b35a1a] shadow-[0_8px_18px_rgba(28,41,65,0.05)]">
-                    {item.type}
-                  </span>
-                  <a
-                    href={item.url}
-                    target="_blank"
-                    rel="noreferrer"
-                    class="inline-flex items-center rounded-full border border-black/8 bg-white/80 px-3 py-1 text-sm font-medium text-[#475467] transition hover:border-[#b35a1a]/30 hover:text-[#243244]"
-                  >
-                    Live Site
-                  </a>
+                    <h4 class="mt-5 text-[1.55rem] leading-[1.06] font-black tracking-[-0.05em]">
+                      {item.title}
+                    </h4>
+                    <p
+                      class:list={[
+                        "mt-3 text-sm leading-7 sm:text-base sm:leading-8",
+                        item.accent === "ink"
+                          ? "text-white/80"
+                          : "text-[#667085]",
+                      ]}
+                    >
+                      {item.summary}
+                    </p>
+
+                    <div class="mt-5 flex flex-wrap gap-2.5">
+                      {item.highlights.map((point) => (
+                        <span class="rounded-full bg-white px-3 py-2 text-sm font-medium text-[#475467] shadow-[0_8px_18px_rgba(28,41,65,0.05)]">
+                          {point}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
                 </div>
-
-                <h4 class="mt-5 text-[1.55rem] leading-[1.06] font-black tracking-[-0.05em]">
-                  {item.title}
-                </h4>
-                <p
-                  class:list={[
-                    "mt-3 text-sm leading-7 sm:text-base sm:leading-8",
-                    item.title === "Auralis"
-                      ? "text-white/80"
-                      : "text-[#667085]",
-                  ]}
-                >
-                  {item.summary}
-                </p>
-
-                <div class="mt-5 flex flex-wrap gap-2.5">
-                  {item.highlights.map((point) => (
-                    <span class="rounded-full bg-white px-3 py-2 text-sm font-medium text-[#475467] shadow-[0_8px_18px_rgba(28,41,65,0.05)]">
-                      {point}
-                    </span>
-                  ))}
-                </div>
-              </div>
+              )}
             </article>
           ))
         }
