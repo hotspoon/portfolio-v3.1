@@ -5,7 +5,7 @@ import sitemap from "@astrojs/sitemap"
 import { defineConfig } from "astro/config"
 
 export default defineConfig({
-  site: "https://www.hamzahalfarisi.com",
+  site: "https://www.hamzahalfarisi.web.id",
   build: {
     inlineStylesheets: "always",
   },

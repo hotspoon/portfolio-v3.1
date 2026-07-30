@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.hamzahalfarisi.com/sitemap-index.xml
+Sitemap: https://www.hamzahalfarisi.web.id/sitemap-index.xml
